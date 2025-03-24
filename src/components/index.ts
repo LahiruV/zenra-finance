@@ -6,3 +6,4 @@ export { default as LoginComponent } from './login-component/login-component';
 export { default as RegisterComponent } from './register-component/register-component';
 export { default as DashboardComponent } from './dashboard-component/dashboard-component';
 export { default as StudentComponent } from './student-component/student-component';
+export { default as FinanceFormComponent } from './student-component/finance-form/finance-form';

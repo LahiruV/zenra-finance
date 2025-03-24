@@ -132,11 +132,11 @@ export default function DataGridWidget() {
                     initialState={{
                         pagination: {
                             paginationModel: {
-                                pageSize: 10,
+                                pageSize: 13,
                             },
                         },
                     }}
-                    pageSizeOptions={[10]}
+                    pageSizeOptions={[13]}
                     checkboxSelection
                     disableRowSelectionOnClick
                 />
