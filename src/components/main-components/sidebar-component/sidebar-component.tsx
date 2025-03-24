@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar-component.css';
 import { company_name } from '@zenra/configs';
 import PixIcon from '@mui/icons-material/Pix';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSelector } from 'react-redux';
-import { RootState, setRouteTitle } from '@zenra/store';
+import { RootState, setRouteTitle, setSideBarSelected } from '@zenra/store';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import { ListItemButton } from '@mui/material';
@@ -29,13 +29,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
             { key: 'finance', label: 'Finance', path: '/finance', icon: <PixIcon /> }
         ] : [])
     ];
-
-    const [selected, setSelected] = useState<string>('dashboard');
-    const theme = useSelector((state: RootState) => state.theme.theme);
+    const { sideBarSelected } = useSelector((state: RootState) => state.common);
 
     const handleSelect = async (item: { key: string, label: string, path: string, icon: JSX.Element }) => {
         initialService.dispatch(setRouteTitle(item.label));
-        setSelected(item.key);
+        initialService.dispatch(setSideBarSelected(item.key));
         initialService.navigate(item.path);
     }
 
@@ -48,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
                         <ListItem key={item.key}>
                             <ListItemButton
                                 onClick={() => handleSelect(item)}
-                                className={`border-radius-5 ${selected === item.key ? `dark-selected-sidebar` : ''} dark-sidebar-hover`}
+                                className={`border-radius-5 ${sideBarSelected === item.key ? `dark-selected-sidebar` : ''} dark-sidebar-hover`}
                                 sx={{
                                     borderRadius: '5px',
                                     ":hover": {

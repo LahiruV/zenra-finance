@@ -1,31 +1,29 @@
 import { ThemeProvider } from '@mui/material/styles';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { createTheme } from '@mui/material/styles';
-import { light_font_color, dark_font_color, page_main_color, dark_background_color, light_background_color, page_main_color_light, dark_background_color_content, light_background_color_content } from '@zenra/configs';
-import { RootState } from '@zenra/store';
-import { useSelector } from 'react-redux';
+import { light_font_color, page_main_color, light_background_color, page_main_color_light, light_background_color_content } from '@zenra/configs';
 
 export default function DataGridWidget() {
-    const { themeButton } = useSelector((state: RootState) => state.theme);
     const theme = createTheme({
         components: {
             MuiDataGrid: {
                 styleOverrides: {
                     root: {
-                        // Your custom styles
+                        color: light_font_color,
+                        backgroundColor: light_background_color,
                     },
                     columnHeader: {
-                        color: themeButton ? dark_font_color : light_font_color,
+                        color: light_font_color,
                         fontWeight: 'bold',
                         border: 'none',
                     },
                     cell: {
-                        color: themeButton ? dark_font_color : light_font_color,
+                        color: light_font_color,
                         border: 'none',
                     },
                     row: {
                         '&:hover': {
-                            backgroundColor: themeButton ? dark_background_color : light_background_color,
+                            backgroundColor: light_background_color,
                         },
                     },
                 },
@@ -53,13 +51,13 @@ export default function DataGridWidget() {
                 secondary: page_main_color,
             },
             background: {
-                default: themeButton ? dark_background_color : light_background_color,
-                paper: themeButton ? dark_background_color : light_background_color,
+                default: light_background_color,
+                paper: light_background_color,
             },
             action: {
                 active: page_main_color,
-                hover: themeButton ? dark_background_color_content : light_background_color_content,
-                selected: themeButton ? dark_background_color_content : light_background_color_content,
+                hover: light_background_color_content,
+                selected: light_background_color_content,
             },
             divider: page_main_color,
         },
