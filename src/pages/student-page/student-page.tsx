@@ -6,7 +6,7 @@ import './student-page.css';
 
 export const titleComponentStudentList =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/newStudent'>
-        <BasicButton className='top-header-button' label='New Record' />
+        <BasicButton className='top-header-button log-out-button' size='sm' label='New Record' />
     </NavLink>
 
 export const Student: React.FC = () => {

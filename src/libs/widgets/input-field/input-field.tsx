@@ -42,6 +42,7 @@ export interface InputFieldProps {
     value: string | number
     helperTextColor?: string
     setState: (value: string | number) => void
+    labelFontSize?: number
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -59,11 +60,12 @@ const InputField: React.FC<InputFieldProps> = ({
     helperTextColor,
     classNameHelperText,
     setState,
+    labelFontSize
 }) => {
     return (
         <CssVarsProvider theme={theme}>
             <FormControl>
-                <FormLabel>{label}</FormLabel>
+                <FormLabel sx={{ fontSize: `${labelFontSize || 14}px` }}>{label}</FormLabel>
                 <Input
                     id={id}
                     className={className || ''}
