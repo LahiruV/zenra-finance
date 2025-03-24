@@ -1,1 +1,1 @@
-export const image_base64 = 'service/image-base64'
+export const image_base64 = 'Common/ConvertImageToBase64'

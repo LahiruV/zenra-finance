@@ -6,7 +6,7 @@ import { getAuthenticated, postAuthenticated } from "@zenra/functions";
 
 export const Base64ImageConverter = (file: File, isExecute: boolean) => {
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('imageFile', file);
     const fetchBase64ImageConverter = async () => {
         const data = await axios.post(`${ApiBaseUrl}${image_base64}`, formData)
         return data;

@@ -92,7 +92,7 @@ export const Register: React.FC = () => {
 
     useEffect(() => {
         if (status === 'success') {
-            setNotification('IMAGE UPLOADED SUCCESSFULLY.');
+            setNotification(response?.data.message);
             setIsSuccessful(true);
             setOpen(true);
             setIsFileUploaded(false);
@@ -100,7 +100,7 @@ export const Register: React.FC = () => {
             setError('');
         }
         if (status === 'error') {
-            setNotification('FAILED TO UPLOAD IMAGE.');
+            setNotification(response?.data.message || 'FAILED TO UPLOAD IMAGE.');
             setIsSuccessful(false);
             setOpen(true);
             setIsFileUploaded(false);
@@ -140,7 +140,7 @@ export const Register: React.FC = () => {
             name,
             email,
             password,
-            image: response?.data.base64Image
+            image: response?.data.result
         };
         adminRegisterMutate(payload, {
             onSuccess: (res: Response) => handleNotifyResponse({
