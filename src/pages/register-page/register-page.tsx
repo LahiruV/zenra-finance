@@ -139,8 +139,11 @@ export const Register: React.FC = () => {
         const payload: RegisterAdminPayload = {
             name,
             email,
+            phone: '',
+            address: '',
+            nic: '',
             password,
-            image: response?.data.result
+            profile: response?.data.result
         };
         adminRegisterMutate(payload, {
             onSuccess: (res: Response) => handleNotifyResponse({
