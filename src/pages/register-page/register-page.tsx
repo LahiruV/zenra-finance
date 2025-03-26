@@ -139,9 +139,6 @@ export const Register: React.FC = () => {
         const payload: RegisterAdminPayload = {
             name,
             email,
-            phone: '',
-            address: '',
-            nic: '',
             password,
             profile: response?.data.result
         };
