@@ -4,8 +4,7 @@ export interface LoginAdminPayload {
 }
 
 export interface LoginAdminResponse {
-    token: string;
-    user: AdminUser;
+    result: string;
     message: string;
 }
 
