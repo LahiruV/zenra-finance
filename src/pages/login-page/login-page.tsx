@@ -4,7 +4,7 @@ import { LoginAdminPayload, LoginAdminResponse } from '@zenra/model';
 import { AdminLogin } from '@zenra/api';
 import { AxiosError } from 'axios';
 import { handleNotifyError, handleNotifyResponse } from '@zenra/functions';
-import { AuthService, useInitialService } from '@zenra/services';
+import { authService, useInitialService } from '@zenra/services';
 import { setLoggedUser } from '@zenra/store';
 
 /**
@@ -90,7 +90,7 @@ export const Login: React.FC = () => {
         adminLoginMutate(payload, {
             onSuccess: (res: LoginAdminResponse) => {
                 if (res.result) {
-                    AuthService.setToken(res.result);
+                    authService.setToken(res.result);
                     initialService.dispatch(setLoggedUser(res.result));
                 }
                 handleNotifyResponse({

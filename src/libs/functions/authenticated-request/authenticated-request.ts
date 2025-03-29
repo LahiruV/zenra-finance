@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ApiBaseUrl } from '@zenra/configs';
-import { AuthService } from '@zenra/services';
+import { authService } from '@zenra/services';
 
 const authenticatedRequest = axios.create({
     baseURL: ApiBaseUrl,
@@ -8,7 +8,7 @@ const authenticatedRequest = axios.create({
 
 authenticatedRequest.interceptors.request.use(
     (config) => {
-        const token = AuthService.getToken();
+        const token = authService.getToken();
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }

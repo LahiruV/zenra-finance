@@ -1,6 +1,6 @@
 const TOKEN_KEY = 'auth_token';
 
-export const AuthService = {
+export const authService = {
     setToken(token: string): void {
         localStorage.setItem(TOKEN_KEY, token);
     },
