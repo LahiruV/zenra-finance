@@ -1,7 +1,11 @@
 export interface LoggedUser {
-    _id: string;
-    email: string;
+    id: number;
     name: string;
-    image: string;
-    type: string;
+    email: string;
+    phone: string;
+    address: string;
+    nic: string;
+    password: string;
+    profile: string;
+    createdAt: string;
 }

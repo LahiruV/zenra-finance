@@ -1,23 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AccountDemoSignedOut, AlertDialogModal, CustomizedSwitches } from '@zenra/widgets';
 import { useSelector } from 'react-redux';
-import { RootState, toggleTheme } from '@zenra/store';
+import { RootState, setLoggedUser, toggleTheme } from '@zenra/store';
 import PeopleIcon from '@mui/icons-material/People';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import './header-component.css';
 import { reset_redux } from '@zenra/functions';
 import { useInitialService } from '@zenra/services';
+import { GetUserInfo } from '@zenra/api';
 
 export interface HeaderProps {
     isAuthenticated: boolean
 }
 
 const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
-    const { themeButton, theme } = useSelector((state: RootState) => state.theme);
+    const initialService = useInitialService()
+    const { theme } = useSelector((state: RootState) => state.theme);
     const { loggedUser } = useSelector((state: RootState) => state.user);
     const [open, setOpen] = useState(false);
+    const { response } = GetUserInfo(true)
 
-    const initialService = useInitialService()
+    useEffect(() => {
+        if (response) {
+            initialService.dispatch(setLoggedUser(response.data.result));
+        }
+    }, [response]);
 
     const handleSignOut = () => {
         reset_redux();
@@ -45,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
                             <span>🇱🇰</span>
                         </div>
                         <div className="cursor" >
-                            <AccountDemoSignedOut onClick={handleOpen} theme={theme} name={loggedUser.name} email={loggedUser.email} image={`data:image/png;base64,${loggedUser.image}`} />
+                            <AccountDemoSignedOut onClick={handleOpen} theme={theme} name={loggedUser.name} email={loggedUser.email} image={`data:image/png;base64,${loggedUser.profile}`} />
                         </div>
                     </div>
                 )}

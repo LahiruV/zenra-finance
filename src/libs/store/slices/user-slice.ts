@@ -7,11 +7,15 @@ type UserState = {
 
 const initialState: UserState = {
     loggedUser: {
-        _id: '',
-        email: '',
+        id: 0,
         name: '',
-        image: '',
-        type: ''
+        email: '',
+        phone: '',
+        address: '',
+        nic: '',
+        password: '',
+        profile: '',
+        createdAt: '',
     },
 };
 

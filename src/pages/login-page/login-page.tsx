@@ -91,7 +91,6 @@ export const Login: React.FC = () => {
             onSuccess: (res: LoginAdminResponse) => {
                 if (res.result) {
                     authService.setToken(res.result);
-                    initialService.dispatch(setLoggedUser(res.result));
                 }
                 handleNotifyResponse({
                     res,
