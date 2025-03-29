@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { AccountDemoSignedOut, AlertDialogModal, CustomizedSwitches } from '@zenra/widgets';
+import React, { useState } from 'react';
+import { AccountDemoSignedOut, AlertDialogModal } from '@zenra/widgets';
 import { useSelector } from 'react-redux';
-import { RootState, setLoggedUser, toggleTheme } from '@zenra/store';
+import { RootState } from '@zenra/store';
 import PeopleIcon from '@mui/icons-material/People';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import './header-component.css';
 import { reset_redux } from '@zenra/functions';
-import { useInitialService } from '@zenra/services';
-import { GetUserInfo } from '@zenra/api';
 
 export interface HeaderProps {
     isAuthenticated: boolean
 }
 
 const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
-    const initialService = useInitialService()
     const { theme } = useSelector((state: RootState) => state.theme);
     const { loggedUser } = useSelector((state: RootState) => state.user);
     const [open, setOpen] = useState(false);
-    const { response } = GetUserInfo(true)
-
-    useEffect(() => {
-        if (response) {
-            initialService.dispatch(setLoggedUser(response.data.result));
-        }
-    }, [response]);
 
     const handleSignOut = () => {
         reset_redux();

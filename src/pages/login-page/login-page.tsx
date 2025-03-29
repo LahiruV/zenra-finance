@@ -90,7 +90,8 @@ export const Login: React.FC = () => {
         adminLoginMutate(payload, {
             onSuccess: (res: LoginAdminResponse) => {
                 if (res.result) {
-                    authService.setToken(res.result);
+                    authService.setToken(res.result.token ?? '');
+                    initialService.dispatch(setLoggedUser(res.result));
                 }
                 handleNotifyResponse({
                     res,

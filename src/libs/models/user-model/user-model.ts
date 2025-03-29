@@ -5,7 +5,8 @@ export interface LoggedUser {
     phone: string;
     address: string;
     nic: string;
-    password: string;
+    password?: string;
     profile: string;
     createdAt: string;
+    token?: string;
 }

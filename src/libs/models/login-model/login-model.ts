@@ -1,10 +1,12 @@
+import { LoggedUser } from "../user-model/user-model";
+
 export interface LoginAdminPayload {
     email: string;
     password: string;
 }
 
 export interface LoginAdminResponse {
-    result: string;
+    result: LoggedUser;
     message: string;
 }
 
