@@ -20,7 +20,7 @@ const FinanceFormComponent: React.FC<FinanceFormComponentProps> = ({
         <Card className='width-max'>
             <form onSubmit={handleSubmit} className="padding-20">
                 <div className="flex justify-content-between padding-20">
-                    <div style={{ width: '240px' }}>
+                    <div style={{ width: '243px' }}>
                         <InputField
                             id='date'
                             classNameHelperText='font-12'
@@ -37,7 +37,7 @@ const FinanceFormComponent: React.FC<FinanceFormComponentProps> = ({
                             labelFontSize={12}
                         />
                     </div>
-                    <div style={{ width: '240px' }}>
+                    <div style={{ width: '243px' }}>
                         <InputField
                             id='income'
                             classNameHelperText='font-12'
@@ -54,7 +54,7 @@ const FinanceFormComponent: React.FC<FinanceFormComponentProps> = ({
                             labelFontSize={12}
                         />
                     </div>
-                    <div style={{ width: '240px' }}>
+                    <div style={{ width: '243px' }}>
                         <InputField
                             id='amount'
                             classNameHelperText='font-12'

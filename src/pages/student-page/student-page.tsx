@@ -12,7 +12,7 @@ export const titleComponentStudentList =
 export const Student: React.FC = () => {
     return (
         <>
-            <StudentComponent />
+            {/* <StudentComponent /> */}
         </>
     );
 };

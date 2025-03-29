@@ -3,7 +3,15 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { MainBaseLayout, RegLogLayout } from '@zenra/layouts';
-import { Dashboard, Login, Register, Student, StudentForm, titleComponentStudentList, titleComponentStudentForm } from '@zenra/pages';
+import {
+  Dashboard,
+  Login,
+  Register,
+  Student,
+  StudentForm,
+  titleComponentStudentList,
+  titleComponentStudentForm
+} from '@zenra/pages';
 import './styles/main.css';
 
 const queryClient = new QueryClient();
