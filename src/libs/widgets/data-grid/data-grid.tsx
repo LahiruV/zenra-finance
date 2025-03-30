@@ -4,18 +4,16 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 export interface DataGridWidgetProps {
     className?: string;
-    style?: React.CSSProperties;
     columns: GridColDef[];
     rows: any[];
 }
 const DataGridWidget: React.FC<DataGridWidgetProps> = ({
     className,
-    style,
     columns,
     rows
 }) => {
     return (
-        <Box sx={{ width: 'auto' }}>
+        <div className={`${className} width-auto`}>
             <DataGrid
                 rows={rows}
                 columns={columns}
@@ -30,7 +28,7 @@ const DataGridWidget: React.FC<DataGridWidgetProps> = ({
                 checkboxSelection
                 disableRowSelectionOnClick
             />
-        </Box>
+        </div>
     );
 }
 export default DataGridWidget;
