@@ -24,11 +24,41 @@ const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
     const { theme } = useSelector((state: RootState) => state.theme);
 
     const cardData = [
-        { title: "September Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />, content: lastMonth?.amount || 0, color: '#1976D2', suffix: 'LKR' },
-        { title: "October Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />, content: thisMonth?.amount || 0, color: '#C62828', suffix: 'LKR' },
-        { title: "2024 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#F9A825' }} />, content: lastYear?.amount || 0, color: '#F9A825', suffix: 'LKR' },
-        { title: "2023 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#2E7D32' }} />, content: thisYear?.amount || 0, color: '#2E7D32', suffix: 'LKR' },
-        { title: "Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />, content: lastYear?.amount + thisYear?.amount || 0, color: '#635bff', suffix: 'LKR' },
+        {
+            title: lastMonth?.month + " Income",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />,
+            content: lastMonth?.amount?.toLocaleString() || 0,
+            color: '#1976D2',
+            suffix: 'LKR'
+        },
+        {
+            title: thisMonth?.month + " Income",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />,
+            content: thisMonth?.amount?.toLocaleString() || 0,
+            color: '#C62828',
+            suffix: 'LKR'
+        },
+        {
+            title: lastYear?.year + " Income",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#F9A825' }} />,
+            content: lastYear?.amount?.toLocaleString() || 0,
+            color: '#F9A825',
+            suffix: 'LKR'
+        },
+        {
+            title: thisYear?.year + " Income",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#2E7D32' }} />,
+            content: thisYear?.amount?.toLocaleString() || 0,
+            color: '#2E7D32',
+            suffix: 'LKR'
+        },
+        {
+            title: "Income",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />,
+            content: ((lastYear?.amount || 0) + (thisYear?.amount || 0)).toLocaleString(),
+            color: '#635bff',
+            suffix: 'LKR'
+        },
     ];
 
     return (
