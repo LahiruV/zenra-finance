@@ -6,12 +6,12 @@ import { AddFinance } from '@zenra/api';
 import { handleNotifyError, handleNotifyResponse } from '@zenra/functions';
 import { AxiosError } from 'axios';
 
-export const titleComponentStudentForm =
+export const titleComponentFinanceForm =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/finance'>
         <BasicButton className='top-header-button log-out-button' size='sm' label='Back' />
     </NavLink>
 
-export const StudentForm: React.FC = () => {
+export const FinanceForm: React.FC = () => {
 
     const { addFinanceMutate } = AddFinance();
     const [date, setDate] = useState<string>('');

@@ -5,5 +5,5 @@ export { default as LeftLogRegComponent } from './main-components/log-reg-compon
 export { default as LoginComponent } from './login-component/login-component';
 export { default as RegisterComponent } from './register-component/register-component';
 export { default as DashboardComponent } from './dashboard-component/dashboard-component';
-export { default as StudentComponent } from './student-component/student-component';
-export { default as FinanceFormComponent } from './student-component/finance-form/finance-form';
+export { default as StudentComponent } from './finance-component/student-component';
+export { default as FinanceFormComponent } from './finance-component/finance-form/finance-form';
