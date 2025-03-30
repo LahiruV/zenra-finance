@@ -7,9 +7,9 @@ import {
   Dashboard,
   Login,
   Register,
-  Student,
+  Finance,
   FinanceForm,
-  titleComponentStudentList,
+  titleComponentFinanceList,
   titleComponentFinanceForm
 } from '@zenra/pages';
 import './styles/main.css';
@@ -46,8 +46,8 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={renderMainBaseLayout(true, Dashboard, false)} />
           <Route path="/new-home" element={renderMainBaseLayout(true, Dashboard, false)} />
           <Route path="/homes" element={renderMainBaseLayout(false, Dashboard, false)} />
-          <Route path="/finance" element={renderMainBaseLayout(true, Student, true, titleComponentStudentList)} />
-          <Route path='/newStudent' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
+          <Route path="/finance" element={renderMainBaseLayout(true, Finance, true, titleComponentFinanceList)} />
+          <Route path='/newFinance' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
         </Routes>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />

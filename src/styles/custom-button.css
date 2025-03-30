@@ -8,3 +8,8 @@
 .log-out-button:hover {
     background-color: #de3024da !important;
 }
+
+.top-header-button {
+    font-size: 12px !important;
+    width: 103px;
+}
