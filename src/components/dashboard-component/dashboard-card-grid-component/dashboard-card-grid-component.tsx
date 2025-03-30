@@ -5,20 +5,30 @@ import Typography from '@mui/joy/Typography';
 import { Divider } from '@mui/joy';
 import { BasicChip, CardLayers3d } from '@zenra/widgets';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import GroupIcon from '@mui/icons-material/Group';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import PersonOffIcon from '@mui/icons-material/PersonOff';
 import './dashboard-card-grid-component.css';
+import { FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 
-const DashBoardCardGrid: React.FC = () => {
+export interface DashBoardCardGridProps {
+    thisMonth: FinanceMonthResponse
+    lastMonth: FinanceMonthResponse
+    thisYear: FinanceYearResponse
+    lastYear: FinanceYearResponse
+}
+const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
+    thisMonth,
+    lastMonth,
+    thisYear,
+    lastYear,
+}) => {
+
     const { theme } = useSelector((state: RootState) => state.theme);
 
     const cardData = [
-        { title: "September Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />, content: "12,000", color: '#1976D2', suffix: 'LKR' },
-        { title: "October Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />, content: "12,000", color: '#C62828', suffix: 'LKR' },
-        { title: "2024 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#F9A825' }} />, content: "12,000", color: '#F9A825', suffix: 'LKR' },
-        { title: "2023 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#2E7D32' }} />, content: "512,000", color: '#2E7D32', suffix: 'LKR' },
-        { title: "Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />, content: "512,000", color: '#635bff', suffix: 'LKR' },
+        { title: "September Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />, content: lastMonth?.amount || 0, color: '#1976D2', suffix: 'LKR' },
+        { title: "October Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />, content: thisMonth?.amount || 0, color: '#C62828', suffix: 'LKR' },
+        { title: "2024 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#F9A825' }} />, content: lastYear?.amount || 0, color: '#F9A825', suffix: 'LKR' },
+        { title: "2023 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#2E7D32' }} />, content: thisYear?.amount || 0, color: '#2E7D32', suffix: 'LKR' },
+        { title: "Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />, content: lastYear?.amount + thisYear?.amount || 0, color: '#635bff', suffix: 'LKR' },
     ];
 
     return (

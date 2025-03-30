@@ -3,3 +3,13 @@ export interface FinancePayload {
     incomeType: string;
     amount: string;
 }
+
+export interface FinanceMonthResponse {
+    month: string;
+    amount: number;
+}
+
+export interface FinanceYearResponse {
+    year: string;
+    amount: number;
+}
