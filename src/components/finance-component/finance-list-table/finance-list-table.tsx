@@ -15,7 +15,7 @@ const FinanceListTable: React.FC<FinanceListTableProps> = ({
             <DataGridWidget
                 columns={columns}
                 rows={rows}
-                pageSize={8}
+                pageSize={9}
             />
         </div>
     );
