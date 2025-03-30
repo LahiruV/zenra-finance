@@ -5,11 +5,13 @@ export interface DataGridWidgetProps {
     className?: string;
     columns: GridColDef[];
     rows: any[];
+    pageSize?: number;
 }
 const DataGridWidget: React.FC<DataGridWidgetProps> = ({
     className,
     columns,
-    rows
+    rows,
+    pageSize,
 }) => {
     return (
         <div className={`${className} width-auto`}>
@@ -19,11 +21,11 @@ const DataGridWidget: React.FC<DataGridWidgetProps> = ({
                 initialState={{
                     pagination: {
                         paginationModel: {
-                            pageSize: 5,
+                            pageSize: pageSize || 5,
                         },
                     },
                 }}
-                pageSizeOptions={[5]}
+                pageSizeOptions={[pageSize || 5]}
                 checkboxSelection
                 disableRowSelectionOnClick
             />

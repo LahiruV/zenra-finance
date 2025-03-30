@@ -1,3 +1,5 @@
+import { GridColDef } from '@mui/x-data-grid';
+import { GetFinance } from '@zenra/api';
 import { FinanceListTable } from '@zenra/components';
 import { BasicButton } from '@zenra/widgets';
 import React from 'react';
@@ -9,9 +11,41 @@ export const titleComponentFinanceList =
     </NavLink>
 
 export const Finance: React.FC = () => {
+    const { response } = GetFinance(true);
+
+    const rows = [
+        { id: 1, date: '', incomeType: '', amount: 0 },
+    ];
+
+    const columns: GridColDef<(typeof rows)[number]>[] = [
+        { field: 'id', headerName: 'ID', width: 90 },
+        {
+            field: 'date',
+            headerName: 'Date',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'incomeType',
+            headerName: 'Income Type',
+            width: 150,
+            editable: true,
+        },
+        {
+            field: 'amount',
+            headerName: 'Amount (LKR)',
+            type: 'number',
+            width: 110,
+            editable: true,
+        },
+    ];
+
     return (
         <div>
-            <FinanceListTable />
+            <FinanceListTable
+                rows={response?.data.result}
+                columns={columns}
+            />
         </div>
     );
 };
