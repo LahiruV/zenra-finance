@@ -5,6 +5,7 @@ import { FinanceFormComponent } from '@zenra/components';
 import { AddFinance } from '@zenra/api';
 import { handleNotifyError, handleNotifyResponse } from '@zenra/functions';
 import { AxiosError } from 'axios';
+import { FinancePayload } from '@zenra/model';
 
 export const titleComponentFinanceForm =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/finance'>
@@ -24,7 +25,7 @@ export const FinanceForm: React.FC = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const payload = {
+        const payload: FinancePayload = {
             date,
             incomeType: income,
             amount,

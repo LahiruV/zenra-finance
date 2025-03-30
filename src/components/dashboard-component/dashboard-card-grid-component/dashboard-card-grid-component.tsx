@@ -13,15 +13,12 @@ import './dashboard-card-grid-component.css';
 const DashBoardCardGrid: React.FC = () => {
     const { theme } = useSelector((state: RootState) => state.theme);
 
-    // Example data
     const cardData = [
         { title: "September Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />, content: "12,000", color: '#1976D2', suffix: 'LKR' },
         { title: "October Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />, content: "12,000", color: '#C62828', suffix: 'LKR' },
         { title: "2024 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#F9A825' }} />, content: "12,000", color: '#F9A825', suffix: 'LKR' },
         { title: "2023 Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#2E7D32' }} />, content: "512,000", color: '#2E7D32', suffix: 'LKR' },
-        { title: "Active Students", icon: <GroupIcon style={{ fontSize: '70px', color: '#EF6C00' }} />, content: "12000", color: '#EF6C00' },
-        { title: "Payed Students", icon: <GroupAddIcon style={{ fontSize: '70px', color: '#00838F' }} />, content: "12000", color: '#00838F' },
-        { title: "InActive Students", icon: <PersonOffIcon style={{ fontSize: '70px', color: '#455A64' }} />, content: "12000", color: '#455A64' },
+        { title: "Income", icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />, content: "512,000", color: '#635bff', suffix: 'LKR' },
     ];
 
     return (
