@@ -23,7 +23,7 @@ export const Dashboard: React.FC = () => {
     const lastMonth = GetLastMonthlyFinanceCount(true)?.response?.data || ({} as FinanceMonthResponse);
     const thisYear = GetThisYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
     const lastYear = GetLastYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
-    const financeByYear = GetFinanceByYear('2024', true)?.response?.data || ({} as FinanceMonthResponse);
+    const financeByYear = GetFinanceByYear('2025', true)?.response?.data || ({} as FinanceMonthResponse);
 
     return (
         <DashboardComponent
