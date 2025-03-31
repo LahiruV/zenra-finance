@@ -12,12 +12,14 @@ export interface DashBoardComponentProps {
     lastMonth: FinanceMonthResponse
     thisYear: FinanceYearResponse
     lastYear: FinanceYearResponse
+    financeByYear: FinanceMonthResponse
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonth,
     lastMonth,
     thisYear,
     lastYear,
+    financeByYear,
 }) => {
 
     return (
@@ -29,7 +31,9 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
                 lastYear={lastYear}
             />
             <div className={`margin-top-20`} />
-            <DashBoardChartGrid />
+            <DashBoardChartGrid
+                financeByYear={financeByYear}
+            />
         </div>);
 };
 

@@ -5,25 +5,18 @@ import { Grid, Box, Divider, Typography } from '@mui/material';
 import './dashboard-card-chart-component.css';
 import { HorizontalBars, SimpleBarChart, SelectBasic } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
+import { FinanceMonthResponse } from '@zenra/model';
 
-const DashBoardChartGrid: React.FC = () => {
+export interface DashBoardChartGridProps {
+    financeByYear: FinanceMonthResponse
+}
+
+const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
+    financeByYear
+}) => {
     const { theme } = useSelector((state: RootState) => state.theme);
     const [monthWiseYear, setMonthWiseYear] = useState('2024');
     const [classWiseYear, setClassWiseYear] = useState('2024');
-    const dataset = [
-        { amount: 1500, month: 'Jan' },
-        { amount: 2000, month: 'Feb' },
-        { amount: 2500, month: 'Mar' },
-        { amount: 3000, month: 'Apr' },
-        { amount: 3500, month: 'May' },
-        { amount: 4000, month: 'Jun' },
-        { amount: 4500, month: 'Jul' },
-        { amount: 5000, month: 'Aug' },
-        { amount: 5500, month: 'Sep' },
-        { amount: 6000, month: 'Oct' },
-        { amount: 6500, month: 'Nov' },
-        { amount: 7000, month: 'Dec' },
-    ];
 
     const data = [4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890, 2390];
     const xLabels = [
@@ -48,7 +41,7 @@ const DashBoardChartGrid: React.FC = () => {
                     <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border`} >
                         <div className='flex justify-content-between'>
                             <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                {monthWiseYear} Payments Month Wise
+                                {monthWiseYear} Monthly Income
                             </Typography>
                             <div className={`font-16 ${theme}-card-font margin-right-30`}>
                                 <SelectBasic
@@ -67,7 +60,7 @@ const DashBoardChartGrid: React.FC = () => {
                             </div>
                         </div>
                         <HorizontalBars
-                            dataset={dataset}
+                            dataset={financeByYear}
                             textColor={char_font_color}
                             yAxisDataKey='month'
                             xAxisLabel='Amount'

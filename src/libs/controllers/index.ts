@@ -9,4 +9,5 @@ export {
     get_last_monthly_finance_count,
     get_this_year_finance_count,
     get_last_year_finance_count,
+    get_finance_by_year
 } from './finance-controller/finance-controller';
