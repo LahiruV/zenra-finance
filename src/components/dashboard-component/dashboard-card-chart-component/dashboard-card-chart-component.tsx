@@ -68,6 +68,8 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                             label='Amount'
                             forMatter='LKR'
                             height={390}
+                            className={'margin-left-30'}
+                            width={600}
                         />
                     </Box>
                 </Grid>

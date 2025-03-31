@@ -14,9 +14,10 @@ export interface HorizontalBarsProps {
     width?: number
     height?: number
     color?: string
+    className?: string
 }
 
-const HorizontalBars: React.FC<HorizontalBarsProps> = ({ textColor, dataset, yAxisDataKey, xAxisLabel, dataKey, label, forMatter, width, height, color }) => {
+const HorizontalBars: React.FC<HorizontalBarsProps> = ({ textColor, dataset, yAxisDataKey, xAxisLabel, dataKey, label, forMatter, width, height, color, className }) => {
 
     function valueFormatter(value: number | null) {
         return `${value} ${forMatter || ''}`;
@@ -35,10 +36,15 @@ const HorizontalBars: React.FC<HorizontalBarsProps> = ({ textColor, dataset, yAx
 
     return (
         <ThemeProvider theme={customTheme}>
-            <div>
+            <div className={className}>
                 <BarChart
                     dataset={dataset}
-                    yAxis={[{ scaleType: 'band', dataKey: yAxisDataKey }]}
+                    yAxis={[{
+                        scaleType: 'band', dataKey: yAxisDataKey,
+                        sx: {
+                            width: '400px',
+                        }
+                    }]}
                     xAxis={[{ label: xAxisLabel, }]}
                     width={width || 500}
                     height={height || 400}
