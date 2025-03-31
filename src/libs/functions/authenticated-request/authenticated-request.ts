@@ -4,6 +4,9 @@ import { authService } from '@zenra/services';
 
 const authenticatedRequest = axios.create({
     baseURL: ApiBaseUrl,
+    headers: {
+        "ngrok-skip-browser-warning": "69420"
+    }
 });
 
 authenticatedRequest.interceptors.request.use(
