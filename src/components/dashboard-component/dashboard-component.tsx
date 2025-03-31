@@ -14,7 +14,6 @@ export interface DashBoardComponentProps {
     lastYear: FinanceYearResponse
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
-    isAuthenticated = false,
     thisMonth,
     lastMonth,
     thisYear,

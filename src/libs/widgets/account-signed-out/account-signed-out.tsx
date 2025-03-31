@@ -15,7 +15,7 @@ export interface AccountDemoSignedOutProps {
     onClick: () => void
 }
 
-const AccountDemoSignedOut: React.FC<AccountDemoSignedOutProps> = ({ name, email, image, theme, onClick }) => {
+const AccountDemoSignedOut: React.FC<AccountDemoSignedOutProps> = ({ name, email, image, onClick }) => {
     const demoSession = React.useMemo(() => ({
         user: {
             name: name || '',
