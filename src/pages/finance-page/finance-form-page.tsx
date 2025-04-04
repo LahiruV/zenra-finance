@@ -15,7 +15,7 @@ export const titleComponentFinanceForm =
 export const FinanceForm: React.FC = () => {
 
     const { addFinanceMutate } = AddFinance();
-    const [date, setDate] = useState<string>('');
+    const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
     const [income, setIncome] = useState<string>('');
     const [amount, setAmount] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
