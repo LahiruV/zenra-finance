@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, setMonthWiseYear } from '@zenra/store';
-import { Grid, Box, Divider, Typography } from '@mui/material';
+import { Grid, Box, Typography } from '@mui/material';
 import './dashboard-card-chart-component.css';
-import { HorizontalBars, SimpleBarChart, SelectBasic } from '@zenra/widgets';
+import { HorizontalBars, SelectBasic } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
 import { FinanceMonthResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
