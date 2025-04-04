@@ -18,23 +18,23 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
     const initialService = useInitialService();
     const { theme } = useSelector((state: RootState) => state.theme);
     const { monthWiseYear } = useSelector((state: RootState) => state.dashboard);
-    const [classWiseYear, setClassWiseYear] = useState('2024');
+    // const [classWiseYear, setClassWiseYear] = useState('2024');
 
-    const data = [4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890, 2390];
-    const xLabels = [
-        'Grade 1',
-        'Grade 2',
-        'Grade 3',
-        'Grade 4',
-        'Grade 5',
-        'Grade 6',
-        'Grade 7',
-        'Grade 8',
-        'Grade 9',
-        'Grade 10',
-        'Grade 11',
-        'Grade 12',
-    ];
+    // const data = [4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890, 2390];
+    // const xLabels = [
+    //     'Grade 1',
+    //     'Grade 2',
+    //     'Grade 3',
+    //     'Grade 4',
+    //     'Grade 5',
+    //     'Grade 6',
+    //     'Grade 7',
+    //     'Grade 8',
+    //     'Grade 9',
+    //     'Grade 10',
+    //     'Grade 11',
+    //     'Grade 12',
+    // ];
 
     return (
         <Box>
