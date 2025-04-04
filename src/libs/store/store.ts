@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import themeReducer from './slices/theme-slice';
 import userReducer from './slices/user-slice';
 import commonReducer from './slices/common-slice';
+import dashboardReducer from './slices/dashboard-slice';
 
 const persistConfig = {
     key: 'root',
@@ -22,12 +23,14 @@ const persistConfig = {
 const persistedCommonReducer = persistReducer(persistConfig, commonReducer);
 const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
 const persistedUserReducer = persistReducer(persistConfig, userReducer);
+const persistedDashboardReducer = persistReducer(persistConfig, dashboardReducer);
 
 export const store = configureStore({
     reducer: {
         common: persistedCommonReducer,
         theme: persistedThemeReducer,
         user: persistedUserReducer,
+        dashboard: persistedDashboardReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

@@ -1,7 +1,9 @@
 import { GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount } from '@zenra/api';
 import { DashboardComponent } from '@zenra/components';
 import { FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { RootState } from '@zenra/store';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const Dashboard: React.FC = () => {
     const datasetFinanceByYear = [
@@ -18,12 +20,12 @@ export const Dashboard: React.FC = () => {
         { amount: 0, month: 'November' },
         { amount: 0, month: 'December' },
     ];
-
+    const { monthWiseYear } = useSelector((state: RootState) => state.dashboard);
     const thisMonth = GetThisMonthlyFinanceCount(true)?.response?.data || ({} as FinanceMonthResponse);
     const lastMonth = GetLastMonthlyFinanceCount(true)?.response?.data || ({} as FinanceMonthResponse);
     const thisYear = GetThisYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
     const lastYear = GetLastYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
-    const financeByYear = GetFinanceByYear('2025', true)?.response?.data || ({} as FinanceMonthResponse);
+    const financeByYear = GetFinanceByYear(monthWiseYear, true)?.response?.data || ({} as FinanceMonthResponse);
 
     return (
         <DashboardComponent

@@ -108,7 +108,7 @@ export const GetFinanceByYear = (year: string, isExecute: boolean) => {
         return data;
     };
     const { data: response, status, error } = useQuery({
-        queryKey: ['get-finance-by-year'],
+        queryKey: ['get-finance-by-year', year],
         queryFn: () => fetch(),
         enabled: isExecute,
     });
