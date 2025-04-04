@@ -41,13 +41,10 @@ const HorizontalBars: React.FC<HorizontalBarsProps> = ({ textColor, dataset, yAx
                     dataset={dataset}
                     yAxis={[{
                         scaleType: 'band', dataKey: yAxisDataKey,
-                        sx: {
-                            width: '400px',
-                        }
                     }]}
                     xAxis={[{ label: xAxisLabel, }]}
-                    width={width || 500}
-                    height={height || 400}
+                    width={width}
+                    height={height}
                     series={[{ dataKey: dataKey, label: label, valueFormatter, color: color || '#02B2AF' }]}
                     layout="horizontal"
                 />
