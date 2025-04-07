@@ -53,10 +53,31 @@ const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
             suffix: 'LKR'
         },
         {
+            title: lastMonth?.month + " Expenses",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#1976D2' }} />,
+            content: lastMonth?.amount?.toLocaleString() || 0,
+            color: '#1976D2',
+            suffix: 'LKR'
+        },
+        {
+            title: thisMonth?.month + " Expenses",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#C62828' }} />,
+            content: thisMonth?.amount?.toLocaleString() || 0,
+            color: '#C62828',
+            suffix: 'LKR'
+        },
+        {
             title: "Income",
             icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />,
             content: ((lastYear?.amount || 0) + (thisYear?.amount || 0)).toLocaleString(),
             color: '#635bff',
+            suffix: 'LKR'
+        },
+        {
+            title: "Expenses",
+            icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#141a21' }} />,
+            content: ((lastYear?.amount || 0) + (thisYear?.amount || 0)).toLocaleString(),
+            color: '#141a21',
             suffix: 'LKR'
         },
     ];
