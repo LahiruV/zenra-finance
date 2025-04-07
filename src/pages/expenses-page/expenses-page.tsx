@@ -14,7 +14,7 @@ export const Expenses: React.FC = () => {
     const { response } = GetFinance(true);
 
     const rows = [
-        { id: 1, date: '', incomeType: '', amount: 0 },
+        { id: 1, date: '', expenseType: '', amount: 0 },
     ];
 
     const columns: GridColDef<(typeof rows)[number]>[] = [
@@ -26,7 +26,7 @@ export const Expenses: React.FC = () => {
             editable: true,
         },
         {
-            field: 'incomeType',
+            field: 'expenseType',
             headerName: 'Expense Type',
             width: 150,
             editable: true,

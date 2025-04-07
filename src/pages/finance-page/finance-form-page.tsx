@@ -40,7 +40,7 @@ export const FinanceForm: React.FC = () => {
                     setOpen,
                     setIsLoading,
                 });
-                setDate('');
+                setDate(new Date().toISOString().split('T')[0]);
                 setIncome('');
                 setAmount('');
             },

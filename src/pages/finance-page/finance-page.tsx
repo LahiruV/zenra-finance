@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 export const titleComponentFinanceList =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/newFinance'>
-        <BasicButton className='top-header-button log-out-button' size='sm' label='Add Record' />
+        <BasicButton className='top-header-button log-out-button' size='sm' label='Add Income' />
     </NavLink>
 
 export const Finance: React.FC = () => {
