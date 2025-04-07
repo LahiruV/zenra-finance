@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState, setMonthWiseYear } from '@zenra/store';
 import { Grid, Box, Typography, Divider } from '@mui/material';
 import './dashboard-card-chart-component.css';
-import { HorizontalBars, SelectBasic } from '@zenra/widgets';
+import { HorizontalBars, SelectBasic, VerticleBars } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
 import { FinanceCurrentWeekDailyResponse, FinanceMonthResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
@@ -51,6 +51,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                             className='width-auto'
                             dataset={financeByYear}
                             textColor={char_font_color}
+                            color='#1976D2'
                             yAxisDataKey='month'
                             xAxisLabel='Amount'
                             dataKey='amount'
@@ -68,12 +69,11 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 {currentMonth} Weekly Income
                             </Typography>
                         </div>
-                        <HorizontalBars
-                            className='width-auto'
-                            dataset={currrentWeekDailyFinanceCount}
+                        <VerticleBars
                             textColor={char_font_color}
-                            yAxisDataKey='day'
-                            xAxisLabel='Amount'
+                            dataset={currrentWeekDailyFinanceCount}
+                            xAxisDataKey='day'
+                            xAxisLabel='Day'
                             dataKey='amount'
                             label='Amount'
                             forMatter='LKR'
