@@ -1,16 +1,16 @@
 import { GridColDef } from '@mui/x-data-grid';
 import { GetFinance } from '@zenra/api';
-import { FinanceListTable } from '@zenra/components';
+import { ExpensesListTable } from '@zenra/components';
 import { BasicButton } from '@zenra/widgets';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const titleComponentFinanceList =
+export const titleComponentExpensesList =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/newFinance'>
-        <BasicButton className='top-header-button log-out-button' size='sm' label='Add Record' />
+        <BasicButton className='top-header-button log-out-button' size='sm' label='Add Expense' />
     </NavLink>
 
-export const Finance: React.FC = () => {
+export const Expenses: React.FC = () => {
     const { response } = GetFinance(true);
 
     const rows = [
@@ -27,7 +27,7 @@ export const Finance: React.FC = () => {
         },
         {
             field: 'incomeType',
-            headerName: 'Expense Type',
+            headerName: 'Income Type',
             width: 150,
             editable: true,
         },
@@ -42,7 +42,7 @@ export const Finance: React.FC = () => {
 
     return (
         <div>
-            <FinanceListTable
+            <ExpensesListTable
                 rows={response?.data.result}
                 columns={columns}
             />

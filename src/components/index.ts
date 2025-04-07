@@ -7,3 +7,4 @@ export { default as RegisterComponent } from './register-component/register-comp
 export { default as DashboardComponent } from './dashboard-component/dashboard-component';
 export { default as FinanceFormComponent } from './finance-component/finance-form/finance-form';
 export { default as FinanceListTable } from './finance-component/finance-list-table/finance-list-table';
+export { default as ExpensesListTable } from './expense-component/expenses-list-table/expenses-list-table';
