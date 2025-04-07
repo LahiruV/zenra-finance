@@ -9,5 +9,6 @@ export {
     get_last_monthly_finance_count,
     get_this_year_finance_count,
     get_last_year_finance_count,
-    get_finance_by_year
+    get_finance_by_year,
+    get_current_week_daily_finance_count
 } from './finance-controller/finance-controller';

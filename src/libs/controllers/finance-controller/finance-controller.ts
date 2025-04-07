@@ -7,3 +7,4 @@ export const get_last_monthly_finance_count = 'Finance/GetLastMonthlyFinanceCoun
 export const get_this_year_finance_count = 'Finance/GetThisYearFinanceCount'
 export const get_last_year_finance_count = 'Finance/GetLastYearFinanceCount'
 export const get_finance_by_year = 'Finance/GetFinanceByYear'
+export const get_current_week_daily_finance_count = 'Finance/GetCurrentWeekDailyFinanceCount'

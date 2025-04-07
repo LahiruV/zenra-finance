@@ -1,39 +1,25 @@
 import { useSelector } from 'react-redux';
 import { RootState, setMonthWiseYear } from '@zenra/store';
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography, Divider } from '@mui/material';
 import './dashboard-card-chart-component.css';
 import { HorizontalBars, SelectBasic } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
-import { FinanceMonthResponse } from '@zenra/model';
+import { FinanceCurrentWeekDailyResponse, FinanceMonthResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
 
 export interface DashBoardChartGridProps {
     financeByYear: FinanceMonthResponse
+    currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
 }
 
 const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
-    financeByYear
+    financeByYear,
+    currrentWeekDailyFinanceCount
 }) => {
     const initialService = useInitialService();
     const { theme } = useSelector((state: RootState) => state.theme);
     const { monthWiseYear } = useSelector((state: RootState) => state.dashboard);
-    // const [classWiseYear, setClassWiseYear] = useState('2024');
-
-    // const data = [4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890, 2390];
-    // const xLabels = [
-    //     'Grade 1',
-    //     'Grade 2',
-    //     'Grade 3',
-    //     'Grade 4',
-    //     'Grade 5',
-    //     'Grade 6',
-    //     'Grade 7',
-    //     'Grade 8',
-    //     'Grade 9',
-    //     'Grade 10',
-    //     'Grade 11',
-    //     'Grade 12',
-    // ];
+    const currentMonth = new Date().toLocaleString('default', { month: 'long' });
 
     return (
         <Box>
@@ -74,41 +60,27 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                         />
                     </Box>
                 </Grid>
-                {/* <Divider orientation="vertical" flexItem sx={{ marginX: 1, height: '422px' }} className={`margin-top-30 margin-left-25 ${theme}-border-background`} />
+                <Divider orientation="vertical" flexItem sx={{ marginX: 1, height: '422px' }} className={`margin-top-30 margin-left-25 ${theme}-border-background`} />
                 <Grid item xs={12} md={5.8}>
-                    <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border`} >
+                    <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border width-auto`} >
                         <div className='flex justify-content-between'>
                             <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                {classWiseYear} Payments Class Wise
+                                {currentMonth} Weekly Income
                             </Typography>
-                            <div className={`font-16 ${theme}-card-font margin-right-30`}>
-                                <SelectBasic
-                                    color='neutral'
-                                    variant='soft'
-                                    className='font-12 width-100'
-                                    classNameOption='font-12'
-                                    value={classWiseYear}
-                                    onChange={(_, value) => setClassWiseYear(String(value) || '')}
-                                    dataList={[
-                                        { value: '2022', label: '2022' },
-                                        { value: '2023', label: '2023' },
-                                        { value: '2024', label: '2024' },
-                                    ]}
-                                />
-                            </div>
                         </div>
-                        <SimpleBarChart
+                        <HorizontalBars
+                            className='width-auto'
+                            dataset={currrentWeekDailyFinanceCount}
                             textColor={char_font_color}
-                            data={data}
-                            xLabels={xLabels}
-                            label='Amount'
+                            yAxisDataKey='day'
                             xAxisLabel='Amount'
+                            dataKey='amount'
+                            label='Amount'
                             forMatter='LKR'
-                            color='#4a49e0'
                             height={390}
                         />
                     </Box>
-                </Grid> */}
+                </Grid>
             </Grid>
         </Box>
     );

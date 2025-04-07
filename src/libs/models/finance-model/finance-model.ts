@@ -13,3 +13,8 @@ export interface FinanceYearResponse {
     year: string;
     amount: number;
 }
+
+export interface FinanceCurrentWeekDailyResponse {
+    day: string;
+    amount: number;
+}

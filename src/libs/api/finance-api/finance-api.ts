@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { add_finance, get_finance, get_finance_by_year, get_last_monthly_finance_count, get_last_year_finance_count, get_this_monthly_finance_count, get_this_year_finance_count } from "@zenra/controller";
+import { add_finance, get_current_week_daily_finance_count, get_finance, get_finance_by_year, get_last_monthly_finance_count, get_last_year_finance_count, get_this_monthly_finance_count, get_this_year_finance_count } from "@zenra/controller";
 import { getAuthenticated, postAuthenticated } from "@zenra/functions";
 import { AxiosError } from "axios";
 
@@ -109,6 +109,23 @@ export const GetFinanceByYear = (year: string, isExecute: boolean) => {
     };
     const { data: response, status, error } = useQuery({
         queryKey: ['get-finance-by-year', year],
+        queryFn: () => fetch(),
+        enabled: isExecute,
+    });
+    return {
+        response,
+        status,
+        error
+    };
+}
+
+export const GetCurrentWeekDailyFinanceCount = (isExecute: boolean) => {
+    const fetch = async () => {
+        const data = await getAuthenticated(get_current_week_daily_finance_count);
+        return data;
+    };
+    const { data: response, status, error } = useQuery({
+        queryKey: ['get-current-week-daily-finance-count'],
         queryFn: () => fetch(),
         enabled: isExecute,
     });

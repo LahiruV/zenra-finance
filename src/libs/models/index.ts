@@ -9,5 +9,6 @@ export type { LoggedUser } from './user-model/user-model';
 export type {
     FinancePayload,
     FinanceMonthResponse,
-    FinanceYearResponse
+    FinanceYearResponse,
+    FinanceCurrentWeekDailyResponse
 } from './finance-model/finance-model';
