@@ -8,3 +8,4 @@ export { default as DashboardComponent } from './dashboard-component/dashboard-c
 export { default as FinanceFormComponent } from './finance-component/finance-form/finance-form';
 export { default as FinanceListTable } from './finance-component/finance-list-table/finance-list-table';
 export { default as ExpensesListTable } from './expense-component/expenses-list-table/expenses-list-table';
+export { default as ExpensesFormComponent } from './expense-component/expense-form/expenses-form';

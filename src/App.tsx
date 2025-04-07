@@ -12,7 +12,9 @@ import {
   titleComponentFinanceList,
   titleComponentFinanceForm,
   titleComponentExpensesList,
-  Expenses
+  Expenses,
+  ExpensesForm,
+  titleComponentExpensesForm
 } from '@zenra/pages';
 import './styles/main.css';
 
@@ -51,6 +53,7 @@ const App: React.FC = () => {
           <Route path="/finance" element={renderMainBaseLayout(true, Finance, true, titleComponentFinanceList)} />
           <Route path='/newFinance' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
           <Route path="/expenses" element={renderMainBaseLayout(true, Expenses, true, titleComponentExpensesList)} />
+          <Route path='/newExpenses' element={renderMainBaseLayout(true, ExpensesForm, true, titleComponentExpensesForm)} />
         </Routes>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
