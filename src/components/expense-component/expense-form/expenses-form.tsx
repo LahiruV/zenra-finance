@@ -61,7 +61,7 @@ const ExpensesFormComponent: React.FC<ExpensesFormComponentProps> = ({
                                 value={income}
                                 setState={(value: string | number) => setIncome(String(value))}
                                 label='Expense Type'
-                                placeholder='Salary'
+                                placeholder='Food'
                                 type='text'
                                 required
                                 variant='outlined'
