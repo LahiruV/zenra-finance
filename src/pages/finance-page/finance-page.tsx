@@ -27,7 +27,7 @@ export const Finance: React.FC = () => {
         },
         {
             field: 'incomeType',
-            headerName: 'Expense Type',
+            headerName: 'Income Type',
             width: 150,
             editable: true,
         },
