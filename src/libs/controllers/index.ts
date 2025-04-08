@@ -16,4 +16,6 @@ export {
     add_expense,
     get_expense,
     get_this_monthly_expense_count,
+    get_today_expenses_count,
+    get_all_expenses_count
 } from './expense-controller/expense-controller';

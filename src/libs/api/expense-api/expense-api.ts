@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { add_expense, get_expense, get_this_monthly_expense_count } from "@zenra/controller";
+import { add_expense, get_all_expenses_count, get_expense, get_this_monthly_expense_count, get_today_expenses_count } from "@zenra/controller";
 import { getAuthenticated, postAuthenticated } from "@zenra/functions";
 import { AxiosError } from "axios";
 
@@ -41,6 +41,40 @@ export const GetThisMonthlyExpensesCount = (isExecute: boolean) => {
     };
     const { data: response, status, error } = useQuery({
         queryKey: ['get-this-monthly-expense-count'],
+        queryFn: () => fetch(),
+        enabled: isExecute,
+    });
+    return {
+        response,
+        status,
+        error
+    };
+}
+
+export const GetTodayExpensesCount = (isExecute: boolean) => {
+    const fetch = async () => {
+        const data = await getAuthenticated(get_today_expenses_count);
+        return data;
+    };
+    const { data: response, status, error } = useQuery({
+        queryKey: ['get-today-expenses-count'],
+        queryFn: () => fetch(),
+        enabled: isExecute,
+    });
+    return {
+        response,
+        status,
+        error
+    };
+}
+
+export const GetAllExpensesCount = (isExecute: boolean) => {
+    const fetch = async () => {
+        const data = await getAuthenticated(get_all_expenses_count);
+        return data;
+    };
+    const { data: response, status, error } = useQuery({
+        queryKey: ['get-all-expenses-count'],
         queryFn: () => fetch(),
         enabled: isExecute,
     });

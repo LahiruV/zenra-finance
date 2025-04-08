@@ -1,3 +1,5 @@
 export const add_expense = 'Expense/AddExpense'
 export const get_expense = 'Expense/GetExpense'
 export const get_this_monthly_expense_count = 'Expense/GetThisMonthlyExpensesCount'
+export const get_today_expenses_count = 'Expense/GetTodayExpensesCount'
+export const get_all_expenses_count = 'Expense/GetAllExpensesCount'
