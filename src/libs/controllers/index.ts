@@ -12,3 +12,4 @@ export {
     get_finance_by_year,
     get_current_week_daily_finance_count
 } from './finance-controller/finance-controller';
+export { add_expense, get_expense } from './expense-controller/expense-controller';

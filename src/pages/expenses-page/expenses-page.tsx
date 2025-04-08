@@ -1,5 +1,5 @@
 import { GridColDef } from '@mui/x-data-grid';
-import { GetFinance } from '@zenra/api';
+import { GetExpense } from '@zenra/api';
 import { ExpensesListTable } from '@zenra/components';
 import { BasicButton } from '@zenra/widgets';
 import React from 'react';
@@ -11,7 +11,7 @@ export const titleComponentExpensesList =
     </NavLink>
 
 export const Expenses: React.FC = () => {
-    const { response } = GetFinance(true);
+    const { response } = GetExpense(true);
 
     const rows = [
         { id: 1, date: '', expenseType: '', amount: 0 },

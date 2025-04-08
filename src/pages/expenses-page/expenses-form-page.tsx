@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { BasicButton } from '@zenra/widgets';
 import { NavLink } from 'react-router-dom';
 import { ExpensesFormComponent } from '@zenra/components';
-import { AddFinance } from '@zenra/api';
+import { AddExpense } from '@zenra/api';
 import { handleNotifyError, handleNotifyResponse } from '@zenra/functions';
 import { AxiosError } from 'axios';
-import { FinancePayload } from '@zenra/model';
+import { ExpensePayload } from '@zenra/model';
 
 export const titleComponentExpensesForm =
     <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/expenses'>
@@ -14,9 +14,9 @@ export const titleComponentExpensesForm =
 
 export const ExpensesForm: React.FC = () => {
 
-    const { addFinanceMutate } = AddFinance();
+    const { addExpenseMutate } = AddExpense();
     const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
-    const [income, setIncome] = useState<string>('');
+    const [expense, setExpense] = useState<string>('');
     const [amount, setAmount] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isSuccessful, setIsSuccessful] = useState(false);
@@ -25,13 +25,13 @@ export const ExpensesForm: React.FC = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const payload: FinancePayload = {
+        const payload: ExpensePayload = {
             date,
-            incomeType: income,
+            expenseType: expense,
             amount,
         };
         setIsLoading(true);
-        addFinanceMutate(payload, {
+        addExpenseMutate(payload, {
             onSuccess: (res: any) => {
                 handleNotifyResponse({
                     res,
@@ -41,7 +41,7 @@ export const ExpensesForm: React.FC = () => {
                     setIsLoading,
                 });
                 setDate(new Date().toISOString().split('T')[0]);
-                setIncome('');
+                setExpense('');
                 setAmount('');
             },
             onError: (error: AxiosError) => handleNotifyError({
@@ -59,10 +59,10 @@ export const ExpensesForm: React.FC = () => {
             <ExpensesFormComponent
                 handleSubmit={handleSubmit}
                 date={date}
-                income={income}
+                income={expense}
                 amount={amount}
                 setDate={setDate}
-                setIncome={setIncome}
+                setIncome={setExpense}
                 setAmount={setAmount}
                 isLoading={isLoading}
                 open={open}
