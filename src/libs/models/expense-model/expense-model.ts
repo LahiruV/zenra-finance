@@ -4,10 +4,10 @@ export interface ExpensePayload {
     amount: string;
 }
 
-// export interface FinanceMonthResponse {
-//     month: string;
-//     amount: number;
-// }
+export interface ExpenseMonthResponse {
+    month: string;
+    amount: number;
+}
 
 // export interface FinanceYearResponse {
 //     year: string;

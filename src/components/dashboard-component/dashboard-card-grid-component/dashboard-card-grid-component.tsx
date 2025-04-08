@@ -6,19 +6,21 @@ import { Divider } from '@mui/joy';
 import { BasicChip, CardLayers3d } from '@zenra/widgets';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import './dashboard-card-grid-component.css';
-import { FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { ExpenseMonthResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 
 export interface DashBoardCardGridProps {
     thisMonth: FinanceMonthResponse
     lastMonth: FinanceMonthResponse
     thisYear: FinanceYearResponse
     lastYear: FinanceYearResponse
+    thisMonthExpense: ExpenseMonthResponse
 }
 const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
     thisMonth,
     lastMonth,
     thisYear,
     lastYear,
+    thisMonthExpense
 }) => {
 
     const { theme } = useSelector((state: RootState) => state.theme);
@@ -60,9 +62,9 @@ const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
             suffix: 'LKR'
         },
         {
-            title: thisMonth?.month + " Expenses",
+            title: thisMonthExpense?.month + " Expenses",
             icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#141a21' }} />,
-            content: thisMonth?.amount?.toLocaleString() || 0,
+            content: thisMonthExpense?.amount?.toLocaleString() || 0,
             color: '#141a21',
             suffix: 'LKR'
         },

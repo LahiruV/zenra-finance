@@ -2,7 +2,7 @@ import React from 'react';;
 import './dashboard-component.css';
 import DashBoardCardGrid from './dashboard-card-grid-component/dashboard-card-grid-component';
 import DashBoardChartGrid from './dashboard-card-chart-component/dashboard-card-chart-component';
-import { FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 // import { useSelector } from 'react-redux';
 // import { RootState } from '@zenra/store';
 
@@ -14,6 +14,7 @@ export interface DashBoardComponentProps {
     lastYear: FinanceYearResponse
     financeByYear: FinanceMonthResponse
     currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
+    thisMonthExpense: ExpenseMonthResponse
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonth,
@@ -21,7 +22,8 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisYear,
     lastYear,
     financeByYear,
-    currrentWeekDailyFinanceCount
+    currrentWeekDailyFinanceCount,
+    thisMonthExpense
 }) => {
 
     return (
@@ -31,6 +33,7 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
                 lastMonth={lastMonth}
                 thisYear={thisYear}
                 lastYear={lastYear}
+                thisMonthExpense={thisMonthExpense}
             />
             <div className={`margin-top-20`} />
             <DashBoardChartGrid

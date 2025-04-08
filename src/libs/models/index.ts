@@ -12,5 +12,8 @@ export type {
     FinanceYearResponse,
     FinanceCurrentWeekDailyResponse
 } from './finance-model/finance-model';
-export type { ExpensePayload } from './expense-model/expense-model';
+export type {
+    ExpensePayload,
+    ExpenseMonthResponse,
+} from './expense-model/expense-model';
 
