@@ -17,6 +17,7 @@ export interface DashBoardComponentProps {
     thisMonthExpense: ExpenseMonthResponse
     todayExpenseCount: number
     allExpenseCount: number
+    allFinanceCount: number
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonth,
@@ -28,6 +29,7 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonthExpense,
     todayExpenseCount,
     allExpenseCount,
+    allFinanceCount
 }) => {
 
     return (
@@ -40,6 +42,7 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
                 thisMonthExpense={thisMonthExpense}
                 todayExpenseCount={todayExpenseCount}
                 allExpenseCount={allExpenseCount}
+                allFinanceCount={allFinanceCount}
             />
             <div className={`margin-top-20`} />
             <DashBoardChartGrid

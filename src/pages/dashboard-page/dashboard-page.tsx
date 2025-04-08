@@ -1,4 +1,4 @@
-import { GetAllExpensesCount, GetCurrentWeekDailyFinanceCount, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
+import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyFinanceCount, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
 import { DashboardComponent } from '@zenra/components';
 import { ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 import { RootState } from '@zenra/store';
@@ -62,6 +62,8 @@ export const Dashboard: React.FC = () => {
     const thisMonthExpense = GetThisMonthlyExpensesCount(true)?.response?.data || ({} as ExpenseMonthResponse);
     const todayExpenseCount = GetTodayExpensesCount(true)?.response?.data || 0;
     const allExpenseCount = GetAllExpensesCount(true)?.response?.data || 0;
+    const allFinanceCount = GetAllFinancesCount(true)?.response?.data || 0;
+
     return (
         <DashboardComponent
             thisMonth={thisMonth.result}
@@ -73,6 +75,7 @@ export const Dashboard: React.FC = () => {
             thisMonthExpense={thisMonthExpense.result}
             todayExpenseCount={todayExpenseCount.result}
             allExpenseCount={allExpenseCount.result}
+            allFinanceCount={allFinanceCount.result}
             isAuthenticated={true}
         />
     );

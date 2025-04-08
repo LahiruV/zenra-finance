@@ -16,6 +16,7 @@ export interface DashBoardCardGridProps {
     thisMonthExpense: ExpenseMonthResponse
     todayExpenseCount: number
     allExpenseCount: number
+    allFinanceCount: number
 }
 const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
     thisMonth,
@@ -25,6 +26,7 @@ const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
     thisMonthExpense,
     todayExpenseCount,
     allExpenseCount,
+    allFinanceCount
 }) => {
 
     const { theme } = useSelector((state: RootState) => state.theme);
@@ -82,7 +84,7 @@ const DashBoardCardGrid: React.FC<DashBoardCardGridProps> = ({
         {
             title: "Income",
             icon: <AttachMoneyIcon style={{ fontSize: '70px', color: '#635bff' }} />,
-            content: ((lastYear?.amount || 0) + (thisYear?.amount || 0)).toLocaleString(),
+            content: allFinanceCount?.toLocaleString(),
             color: '#635bff',
             suffix: 'LKR'
         },
