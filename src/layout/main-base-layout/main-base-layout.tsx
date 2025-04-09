@@ -13,15 +13,15 @@ interface LayoutProps {
 
 const MainBaseLayout: React.FC<LayoutProps> = ({ children, showSidebar = true, titleComponent, showTitlebar }) => {
     const theme = useSelector((state: RootState) => state.theme.theme);
-    // const { routeTitle } = useSelector((state: RootState) => state.common);
+    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
     return (
         <div id='main-base-layout' className='main-base-layout flex'>
             <div className={`dark-background dark-border-right-sidebar`}>
-                {showSidebar && <Sidebar isAuthenticated={true} />}
+                {showSidebar && <Sidebar isAuthenticated={isAuthenticated} />}
             </div>
             <div className='flex-1 flex flex-direction-column'>
-                {showSidebar && <Header isAuthenticated={true} />}
+                {showSidebar && <Header isAuthenticated={isAuthenticated} />}
                 {showTitlebar &&
                     <div className={`main-header-routes bolder ${theme}-content-background ${theme}-main-header font-16 padding-10`}>
                         <div>

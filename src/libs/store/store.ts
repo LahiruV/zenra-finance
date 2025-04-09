@@ -9,6 +9,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+import authReducer from './slices/auth-slice';
 import storage from 'redux-persist/lib/storage';
 import themeReducer from './slices/theme-slice';
 import userReducer from './slices/user-slice';
@@ -20,6 +21,7 @@ const persistConfig = {
     storage,
 };
 
+const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedCommonReducer = persistReducer(persistConfig, commonReducer);
 const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
 const persistedUserReducer = persistReducer(persistConfig, userReducer);
@@ -27,6 +29,7 @@ const persistedDashboardReducer = persistReducer(persistConfig, dashboardReducer
 
 export const store = configureStore({
     reducer: {
+        auth: persistedAuthReducer,
         common: persistedCommonReducer,
         theme: persistedThemeReducer,
         user: persistedUserReducer,

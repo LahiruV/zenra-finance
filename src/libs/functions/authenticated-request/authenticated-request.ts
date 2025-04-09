@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ApiBaseUrl } from '@zenra/configs';
 import { authService } from '@zenra/services';
+import { reset_redux } from '../reset-redux-function/reset-redux-function';
 
 const authenticatedRequest = axios.create({
     baseURL: ApiBaseUrl,
@@ -12,6 +13,12 @@ const authenticatedRequest = axios.create({
 authenticatedRequest.interceptors.request.use(
     (config) => {
         const token = authService.getToken();
+        const tokenExpiry = authService.expireToken();
+        if (tokenExpiry) {
+            authService.clearToken();
+            reset_redux();
+            window.location.href = '/';
+        }
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }
