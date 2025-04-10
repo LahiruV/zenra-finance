@@ -9,12 +9,12 @@ export interface ExpenseMonthResponse {
     amount: number;
 }
 
-// export interface FinanceYearResponse {
-//     year: string;
-//     amount: number;
-// }
+export interface ExpenseYearResponse {
+    year: string;
+    amount: number;
+}
 
-// export interface FinanceCurrentWeekDailyResponse {
-//     day: string;
-//     amount: number;
-// }
+export interface ExpenseCurrentWeekDailyResponse {
+    day: string;
+    amount: number;
+}

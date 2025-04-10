@@ -10,11 +10,15 @@ import { useInitialService } from '@zenra/services';
 export interface DashBoardChartGridProps {
     financeByYear: FinanceMonthResponse
     currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
+    currrentWeekDailyExpenseCount: FinanceCurrentWeekDailyResponse
+    expenseByYear: FinanceMonthResponse
 }
 
 const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
     financeByYear,
-    currrentWeekDailyFinanceCount
+    currrentWeekDailyFinanceCount,
+    currrentWeekDailyExpenseCount,
+    expenseByYear
 }) => {
     const initialService = useInitialService();
     const { theme } = useSelector((state: RootState) => state.theme);
@@ -55,7 +59,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                             </div>
                             <VerticleBars
                                 textColor={char_font_color}
-                                dataset={currrentWeekDailyFinanceCount}
+                                dataset={currrentWeekDailyExpenseCount}
                                 xAxisDataKey='day'
                                 xAxisLabel='Day'
                                 dataKey='amount'
@@ -133,7 +137,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                             </div>
                             <HorizontalBars
                                 className='width-auto'
-                                dataset={financeByYear}
+                                dataset={expenseByYear}
                                 textColor={char_font_color}
                                 color='#e74c3c'
                                 yAxisDataKey='month'

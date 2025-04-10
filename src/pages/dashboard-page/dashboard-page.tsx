@@ -1,6 +1,6 @@
-import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyFinanceCount, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
+import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyExpenseCount, GetCurrentWeekDailyFinanceCount, GetExpenseByYear, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
 import { DashboardComponent } from '@zenra/components';
-import { ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 import { RootState } from '@zenra/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -63,6 +63,8 @@ export const Dashboard: React.FC = () => {
     const todayExpenseCount = GetTodayExpensesCount(true)?.response?.data || 0;
     const allExpenseCount = GetAllExpensesCount(true)?.response?.data || 0;
     const allFinanceCount = GetAllFinancesCount(true)?.response?.data || 0;
+    const currrentWeekDailyExpenseCount = GetCurrentWeekDailyExpenseCount(true)?.response?.data || ({} as ExpenseCurrentWeekDailyResponse);
+    const expenseByYear = GetExpenseByYear(monthWiseYear, true)?.response?.data || ({} as ExpenseMonthResponse);
 
     return (
         <DashboardComponent
@@ -76,6 +78,8 @@ export const Dashboard: React.FC = () => {
             todayExpenseCount={todayExpenseCount.result}
             allExpenseCount={allExpenseCount.result}
             allFinanceCount={allFinanceCount.result}
+            currrentWeekDailyExpenseCount={currrentWeekDailyExpenseCount?.result || currrentWeekDailyFinanceCountData}
+            expenseByYear={expenseByYear?.result || datasetFinanceByYear}
             isAuthenticated={true}
         />
     );

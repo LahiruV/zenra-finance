@@ -2,7 +2,7 @@ import React from 'react';;
 import './dashboard-component.css';
 import DashBoardCardGrid from './dashboard-card-grid-component/dashboard-card-grid-component';
 import DashBoardChartGrid from './dashboard-card-chart-component/dashboard-card-chart-component';
-import { ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 // import { useSelector } from 'react-redux';
 // import { RootState } from '@zenra/store';
 
@@ -18,6 +18,9 @@ export interface DashBoardComponentProps {
     todayExpenseCount: number
     allExpenseCount: number
     allFinanceCount: number
+    currrentWeekDailyExpenseCount: ExpenseCurrentWeekDailyResponse
+    expenseByYear: ExpenseMonthResponse
+
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonth,
@@ -29,7 +32,9 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonthExpense,
     todayExpenseCount,
     allExpenseCount,
-    allFinanceCount
+    allFinanceCount,
+    currrentWeekDailyExpenseCount,
+    expenseByYear
 }) => {
 
     return (
@@ -48,6 +53,8 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
             <DashBoardChartGrid
                 financeByYear={financeByYear}
                 currrentWeekDailyFinanceCount={currrentWeekDailyFinanceCount}
+                currrentWeekDailyExpenseCount={currrentWeekDailyExpenseCount}
+                expenseByYear={expenseByYear}
             />
         </div>);
 };
