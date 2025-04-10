@@ -97,6 +97,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                     />
                                 </div>
                             </div>
+
                             <HorizontalBars
                                 className='width-auto'
                                 dataset={financeByYear}
@@ -119,20 +120,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                     {monthWiseYear} Monthly Expenses
                                 </Typography>
                                 <div className={`font-16 ${theme}-card-font margin-right-30`}>
-                                    <SelectBasic
-                                        color='neutral'
-                                        variant='soft'
-                                        className='font-12 width-100'
-                                        classNameOption='font-12'
-                                        value={monthWiseYear}
-                                        onChange={(_, value) => initialService.dispatch(setMonthWiseYear(String(value) || ''))}
-                                        dataList={[
-                                            { value: '2024', label: '2024' },
-                                            { value: '2025', label: '2025' },
-                                            { value: '2026', label: '2026' },
-                                            { value: '2027', label: '2027' },
-                                        ]}
-                                    />
+
                                 </div>
                             </div>
                             <HorizontalBars
