@@ -15,7 +15,7 @@ const ExpensesListTable: React.FC<ExpensesListTableProps> = ({
             <DataGridWidget
                 columns={columns}
                 rows={rows}
-                pageSize={9}
+                pageSize={10}
             />
         </div>
     );
