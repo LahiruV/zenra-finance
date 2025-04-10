@@ -44,6 +44,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 dataKey='amount'
                                 label='Amount'
                                 forMatter='LKR'
+                                borderRadius={5}
                                 // color='#e74c3c'
                                 height={300}
                             />
@@ -66,6 +67,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 label='Amount'
                                 forMatter='LKR'
                                 color='#e74c3c'
+                                borderRadius={5}
                                 height={300}
                             />
                         </Box>

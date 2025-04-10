@@ -15,9 +15,10 @@ export interface SimpleBarChartProps {
     height?: number
     color?: string
     className?: string
+    borderRadius?: number
 }
 
-const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxisDataKey, dataKey, label, forMatter, width, height, color, xAxisLabel, yAxisLabel, className }) => {
+const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxisDataKey, dataKey, label, forMatter, width, height, color, xAxisLabel, yAxisLabel, className, borderRadius }) => {
 
     function valueFormatter(value: number | null) {
         return `${value} ${forMatter || ''}`;
@@ -47,6 +48,7 @@ const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxis
                         label: yAxisLabel
                     }]}
                     series={[{ dataKey: dataKey, label: label, valueFormatter, color: color || '#02B2AF' }]}
+                    borderRadius={borderRadius || 0}
                 />
             </div>
         </ThemeProvider>
