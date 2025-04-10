@@ -4,7 +4,7 @@ import { Grid, Box, Typography } from '@mui/material';
 import './dashboard-card-chart-component.css';
 import { HorizontalBars, SelectBasic, VerticleBars } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
-import { FinanceCurrentWeekDailyResponse, FinanceMonthResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
 
 export interface DashBoardChartGridProps {
@@ -12,13 +12,15 @@ export interface DashBoardChartGridProps {
     currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
     currrentWeekDailyExpenseCount: FinanceCurrentWeekDailyResponse
     expenseByYear: FinanceMonthResponse
+    getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
 }
 
 const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
     financeByYear,
     currrentWeekDailyFinanceCount,
     currrentWeekDailyExpenseCount,
-    expenseByYear
+    expenseByYear,
+    getCurrentWeekDailyIncomeExpense
 }) => {
     const initialService = useInitialService();
     const { theme } = useSelector((state: RootState) => state.theme);
@@ -33,10 +35,22 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                         <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border width-auto`} >
                             <div className='flex justify-content-between'>
                                 <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                    {currentMonth} Weekly Income
+                                    {currentMonth} Weekly Income / Expenses
                                 </Typography>
                             </div>
                             <VerticleBars
+                                textColor={char_font_color}
+                                dataset={getCurrentWeekDailyIncomeExpense}
+                                xAxisDataKey='day'
+                                xAxisLabel='Day'
+                                dataKey='amountIncome'
+                                label='Amount'
+                                forMatter='LKR'
+                                borderRadius={5}
+                                // color='#e74c3c'
+                                height={300}
+                            />
+                            {/* <VerticleBars
                                 textColor={char_font_color}
                                 dataset={currrentWeekDailyFinanceCount}
                                 xAxisDataKey='day'
@@ -47,7 +61,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 borderRadius={5}
                                 // color='#e74c3c'
                                 height={300}
-                            />
+                            /> */}
                         </Box>
                     </Grid>
                     {/* <Divider orientation="vertical" flexItem sx={{ marginX: 1, height: '350px' }} className={`margin-top-30 margin-left-25 ${theme}-border-background`} /> */}

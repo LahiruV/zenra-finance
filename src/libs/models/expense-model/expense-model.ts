@@ -18,3 +18,9 @@ export interface ExpenseCurrentWeekDailyResponse {
     day: string;
     amount: number;
 }
+
+export interface CurrentWeekDailyIncomeExpenseResponse {
+    day: string;
+    amountIncome: number;
+    amountExpense: number;
+}

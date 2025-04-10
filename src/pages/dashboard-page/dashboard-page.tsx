@@ -1,6 +1,6 @@
-import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyExpenseCount, GetCurrentWeekDailyFinanceCount, GetExpenseByYear, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
+import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyExpenseCount, GetCurrentWeekDailyFinanceCount, GetCurrentWeekDailyIncomeExpenseCount, GetExpenseByYear, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
 import { DashboardComponent } from '@zenra/components';
-import { ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
 import { RootState } from '@zenra/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -51,6 +51,45 @@ const currrentWeekDailyFinanceCountData = [
     }
 ]
 
+const currrentWeekDailyIncomeExpenseData =
+    [
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Sun',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Mon',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Tue',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Wed',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Thu',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Fri',
+        },
+        {
+            amountIncome: 0,
+            amountExpense: 0,
+            day: 'Sat',
+        }
+    ]
+
 export const Dashboard: React.FC = () => {
     const { monthWiseYear } = useSelector((state: RootState) => state.dashboard);
     const thisMonth = GetThisMonthlyFinanceCount(true)?.response?.data || ({} as FinanceMonthResponse);
@@ -65,6 +104,7 @@ export const Dashboard: React.FC = () => {
     const allFinanceCount = GetAllFinancesCount(true)?.response?.data || 0;
     const currrentWeekDailyExpenseCount = GetCurrentWeekDailyExpenseCount(true)?.response?.data || ({} as ExpenseCurrentWeekDailyResponse);
     const expenseByYear = GetExpenseByYear(monthWiseYear, true)?.response?.data || ({} as ExpenseMonthResponse);
+    const getCurrentWeekDailyIncomeExpense = GetCurrentWeekDailyIncomeExpenseCount(true)?.response?.data || ({} as CurrentWeekDailyIncomeExpenseResponse);
 
     return (
         <DashboardComponent
@@ -80,6 +120,7 @@ export const Dashboard: React.FC = () => {
             allFinanceCount={allFinanceCount.result}
             currrentWeekDailyExpenseCount={currrentWeekDailyExpenseCount?.result || currrentWeekDailyFinanceCountData}
             expenseByYear={expenseByYear?.result || datasetFinanceByYear}
+            getCurrentWeekDailyIncomeExpense={getCurrentWeekDailyIncomeExpense?.result || currrentWeekDailyIncomeExpenseData}
             isAuthenticated={true}
         />
     );
