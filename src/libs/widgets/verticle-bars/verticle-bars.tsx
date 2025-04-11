@@ -2,26 +2,30 @@
 import { BarChart } from '@mui/x-charts/BarChart';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+interface Series {
+    dataKey: string
+    label: string
+    forMatter?: string
+    color?: string
+}
+
 export interface SimpleBarChartProps {
     textColor: string
     dataset: any
     xAxisDataKey: string
     xAxisLabel?: string
     yAxisLabel?: string
-    dataKey: string
-    label: string
-    forMatter?: string
     width?: number
     height?: number
-    color?: string
     className?: string
     borderRadius?: number
+    series?: Series[]
 }
 
-const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxisDataKey, dataKey, label, forMatter, width, height, color, xAxisLabel, yAxisLabel, className, borderRadius }) => {
+const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxisDataKey, width, height, xAxisLabel, yAxisLabel, className, borderRadius, series }) => {
 
     function valueFormatter(value: number | null) {
-        return `${value} ${forMatter || ''}`;
+        return `${value} ${(series?.[0]?.forMatter) || ''}`;
     }
 
     const customTheme = createTheme({
@@ -47,7 +51,8 @@ const VerticleBars: React.FC<SimpleBarChartProps> = ({ textColor, dataset, xAxis
                     yAxis={[{
                         label: yAxisLabel
                     }]}
-                    series={[{ dataKey: dataKey, label: label, valueFormatter, color: color || '#02B2AF' }]}
+                    // series={[{ dataKey: dataKey, label: label, valueFormatter, color: color || '#02B2AF' }]}
+                    series={series || [{ dataKey: '', label: '', valueFormatter, color: '#02B2AF' }]}
                     borderRadius={borderRadius || 0}
                 />
             </div>

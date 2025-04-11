@@ -4,21 +4,17 @@ import { Grid, Box, Typography } from '@mui/material';
 import './dashboard-card-chart-component.css';
 import { HorizontalBars, SelectBasic, VerticleBars } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
-import { CurrentWeekDailyIncomeExpenseResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, FinanceMonthResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
 
 export interface DashBoardChartGridProps {
     financeByYear: FinanceMonthResponse
-    currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
-    currrentWeekDailyExpenseCount: FinanceCurrentWeekDailyResponse
     expenseByYear: FinanceMonthResponse
     getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
 }
 
 const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
     financeByYear,
-    currrentWeekDailyFinanceCount,
-    currrentWeekDailyExpenseCount,
     expenseByYear,
     getCurrentWeekDailyIncomeExpense
 }) => {
@@ -43,25 +39,25 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 dataset={getCurrentWeekDailyIncomeExpense}
                                 xAxisDataKey='day'
                                 xAxisLabel='Day'
-                                dataKey='amountIncome'
-                                label='Amount'
-                                forMatter='LKR'
                                 borderRadius={5}
-                                // color='#e74c3c'
                                 height={300}
+                                series={
+                                    [
+                                        {
+                                            dataKey: 'amountIncome',
+                                            label: 'Income',
+                                            forMatter: 'LKR',
+                                            color: '#02B2AF'
+                                        },
+                                        {
+                                            dataKey: 'amountExpense',
+                                            label: 'Expenses',
+                                            forMatter: 'LKR',
+                                            color: '#e74c3c'
+                                        }
+                                    ]
+                                }
                             />
-                            {/* <VerticleBars
-                                textColor={char_font_color}
-                                dataset={currrentWeekDailyFinanceCount}
-                                xAxisDataKey='day'
-                                xAxisLabel='Day'
-                                dataKey='amount'
-                                label='Amount'
-                                forMatter='LKR'
-                                borderRadius={5}
-                                // color='#e74c3c'
-                                height={300}
-                            /> */}
                         </Box>
                     </Grid>
                     {/* <Divider orientation="vertical" flexItem sx={{ marginX: 1, height: '350px' }} className={`margin-top-30 margin-left-25 ${theme}-border-background`} /> */}
@@ -72,7 +68,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                     {currentMonth} Weekly Expenses
                                 </Typography>
                             </div>
-                            <VerticleBars
+                            {/* <VerticleBars
                                 textColor={char_font_color}
                                 dataset={currrentWeekDailyExpenseCount}
                                 xAxisDataKey='day'
@@ -83,7 +79,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 color='#e74c3c'
                                 borderRadius={5}
                                 height={300}
-                            />
+                            /> */}
                         </Box>
                     </Grid>
                 </Grid>

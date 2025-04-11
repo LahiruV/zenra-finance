@@ -13,12 +13,10 @@ export interface DashBoardComponentProps {
     thisYear: FinanceYearResponse
     lastYear: FinanceYearResponse
     financeByYear: FinanceMonthResponse
-    currrentWeekDailyFinanceCount: FinanceCurrentWeekDailyResponse
     thisMonthExpense: ExpenseMonthResponse
     todayExpenseCount: number
     allExpenseCount: number
     allFinanceCount: number
-    currrentWeekDailyExpenseCount: ExpenseCurrentWeekDailyResponse
     expenseByYear: ExpenseMonthResponse
     getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
 
@@ -29,12 +27,10 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisYear,
     lastYear,
     financeByYear,
-    currrentWeekDailyFinanceCount,
     thisMonthExpense,
     todayExpenseCount,
     allExpenseCount,
     allFinanceCount,
-    currrentWeekDailyExpenseCount,
     expenseByYear,
     getCurrentWeekDailyIncomeExpense
 }) => {
@@ -54,8 +50,6 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
             <div className={`margin-top-20`} />
             <DashBoardChartGrid
                 financeByYear={financeByYear}
-                currrentWeekDailyFinanceCount={currrentWeekDailyFinanceCount}
-                currrentWeekDailyExpenseCount={currrentWeekDailyExpenseCount}
                 expenseByYear={expenseByYear}
                 getCurrentWeekDailyIncomeExpense={getCurrentWeekDailyIncomeExpense}
             />
