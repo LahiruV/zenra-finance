@@ -1,23 +1,23 @@
-import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyExpenseCount, GetCurrentWeekDailyFinanceCount, GetCurrentWeekDailyIncomeExpenseCount, GetExpenseByYear, GetFinanceByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
+import { GetAllExpensesCount, GetAllFinancesCount, GetCurrentWeekDailyIncomeExpenseCount, GetIncomeExpenseByYear, GetLastMonthlyFinanceCount, GetLastYearFinanceCount, GetThisMonthlyExpensesCount, GetThisMonthlyFinanceCount, GetThisYearFinanceCount, GetTodayExpensesCount } from '@zenra/api';
 import { DashboardComponent } from '@zenra/components';
-import { CurrentWeekDailyIncomeExpenseResponse, ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, ExpenseMonthResponse, FinanceMonthResponse, FinanceYearResponse, MonthIncomeExpenseResponse } from '@zenra/model';
 import { RootState } from '@zenra/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const datasetFinanceByYear = [
-    { amount: 0, month: 'January' },
-    { amount: 0, month: 'February' },
-    { amount: 0, month: 'March' },
-    { amount: 0, month: 'April' },
-    { amount: 0, month: 'May' },
-    { amount: 0, month: 'June' },
-    { amount: 0, month: 'July' },
-    { amount: 0, month: 'August' },
-    { amount: 0, month: 'September' },
-    { amount: 0, month: 'October' },
-    { amount: 0, month: 'November' },
-    { amount: 0, month: 'December' },
+const incomeExpenseByYearData = [
+    { amountIncome: 0, amountExpense: 0, month: 'January' },
+    { amountIncome: 0, amountExpense: 0, month: 'February' },
+    { amountIncome: 0, amountExpense: 0, month: 'March' },
+    { amountIncome: 0, amountExpense: 0, month: 'April' },
+    { amountIncome: 0, amountExpense: 0, month: 'May' },
+    { amountIncome: 0, amountExpense: 0, month: 'June' },
+    { amountIncome: 0, amountExpense: 0, month: 'July' },
+    { amountIncome: 0, amountExpense: 0, month: 'August' },
+    { amountIncome: 0, amountExpense: 0, month: 'September' },
+    { amountIncome: 0, amountExpense: 0, month: 'October' },
+    { amountIncome: 0, amountExpense: 0, month: 'November' },
+    { amountIncome: 0, amountExpense: 0, month: 'December' },
 ];
 
 const currrentWeekDailyIncomeExpenseData =
@@ -65,12 +65,11 @@ export const Dashboard: React.FC = () => {
     const lastMonth = GetLastMonthlyFinanceCount(true)?.response?.data || ({} as FinanceMonthResponse);
     const thisYear = GetThisYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
     const lastYear = GetLastYearFinanceCount(true)?.response?.data || ({} as FinanceYearResponse);
-    const financeByYear = GetFinanceByYear(monthWiseYear, true)?.response?.data || ({} as FinanceMonthResponse);
     const thisMonthExpense = GetThisMonthlyExpensesCount(true)?.response?.data || ({} as ExpenseMonthResponse);
     const todayExpenseCount = GetTodayExpensesCount(true)?.response?.data || 0;
     const allExpenseCount = GetAllExpensesCount(true)?.response?.data || 0;
     const allFinanceCount = GetAllFinancesCount(true)?.response?.data || 0;
-    const expenseByYear = GetExpenseByYear(monthWiseYear, true)?.response?.data || ({} as ExpenseMonthResponse);
+    const incomeExpenseByYear = GetIncomeExpenseByYear(monthWiseYear, true)?.response?.data || ({} as MonthIncomeExpenseResponse);
     const getCurrentWeekDailyIncomeExpense = GetCurrentWeekDailyIncomeExpenseCount(true)?.response?.data || ({} as CurrentWeekDailyIncomeExpenseResponse);
 
     return (
@@ -79,13 +78,12 @@ export const Dashboard: React.FC = () => {
             lastMonth={lastMonth.result}
             thisYear={thisYear.result}
             lastYear={lastYear.result}
-            financeByYear={financeByYear?.result || datasetFinanceByYear}
             thisMonthExpense={thisMonthExpense.result}
             todayExpenseCount={todayExpenseCount.result}
             allExpenseCount={allExpenseCount.result}
             allFinanceCount={allFinanceCount.result}
-            expenseByYear={expenseByYear?.result || datasetFinanceByYear}
             getCurrentWeekDailyIncomeExpense={getCurrentWeekDailyIncomeExpense?.result || currrentWeekDailyIncomeExpenseData}
+            incomeExpenseByYear={incomeExpenseByYear?.result || incomeExpenseByYearData}
             isAuthenticated={true}
         />
     );

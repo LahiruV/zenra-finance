@@ -2,7 +2,7 @@ import React from 'react';;
 import './dashboard-component.css';
 import DashBoardCardGrid from './dashboard-card-grid-component/dashboard-card-grid-component';
 import DashBoardChartGrid from './dashboard-card-chart-component/dashboard-card-chart-component';
-import { CurrentWeekDailyIncomeExpenseResponse, ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse, MonthIncomeExpenseResponse } from '@zenra/model';
 // import { useSelector } from 'react-redux';
 // import { RootState } from '@zenra/store';
 
@@ -12,13 +12,12 @@ export interface DashBoardComponentProps {
     lastMonth: FinanceMonthResponse
     thisYear: FinanceYearResponse
     lastYear: FinanceYearResponse
-    financeByYear: FinanceMonthResponse
     thisMonthExpense: ExpenseMonthResponse
     todayExpenseCount: number
     allExpenseCount: number
     allFinanceCount: number
-    expenseByYear: ExpenseMonthResponse
     getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
+    incomeExpenseByYear: MonthIncomeExpenseResponse
 
 }
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
@@ -26,13 +25,12 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     lastMonth,
     thisYear,
     lastYear,
-    financeByYear,
     thisMonthExpense,
     todayExpenseCount,
     allExpenseCount,
     allFinanceCount,
-    expenseByYear,
-    getCurrentWeekDailyIncomeExpense
+    getCurrentWeekDailyIncomeExpense,
+    incomeExpenseByYear
 }) => {
 
     return (
@@ -49,9 +47,8 @@ const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
             />
             <div className={`margin-top-20`} />
             <DashBoardChartGrid
-                financeByYear={financeByYear}
-                expenseByYear={expenseByYear}
                 getCurrentWeekDailyIncomeExpense={getCurrentWeekDailyIncomeExpense}
+                incomeExpenseByYear={incomeExpenseByYear}
             />
         </div>);
 };

@@ -21,5 +21,6 @@ export {
     get_all_expenses_count,
     get_current_week_daily_expense_count,
     get_expense_by_year,
-    get_current_week_daily_income_expense_count
+    get_current_week_daily_income_expense_count,
+    get_income_expense_by_year
 } from './expense-controller/expense-controller';

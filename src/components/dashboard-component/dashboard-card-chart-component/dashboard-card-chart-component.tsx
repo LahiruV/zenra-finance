@@ -2,21 +2,19 @@ import { useSelector } from 'react-redux';
 import { RootState, setMonthWiseYear } from '@zenra/store';
 import { Grid, Box, Typography } from '@mui/material';
 import './dashboard-card-chart-component.css';
-import { HorizontalBars, SelectBasic, VerticleBars } from '@zenra/widgets';
+import { SelectBasic, VerticleBars } from '@zenra/widgets';
 import { char_font_color } from '@zenra/configs';
-import { CurrentWeekDailyIncomeExpenseResponse, FinanceMonthResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, MonthIncomeExpenseResponse } from '@zenra/model';
 import { useInitialService } from '@zenra/services';
 
 export interface DashBoardChartGridProps {
-    financeByYear: FinanceMonthResponse
-    expenseByYear: FinanceMonthResponse
-    getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
+    getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse,
+    incomeExpenseByYear: MonthIncomeExpenseResponse
 }
 
 const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
-    financeByYear,
-    expenseByYear,
-    getCurrentWeekDailyIncomeExpense
+    getCurrentWeekDailyIncomeExpense,
+    incomeExpenseByYear
 }) => {
     const initialService = useInitialService();
     const { theme } = useSelector((state: RootState) => state.theme);
@@ -40,7 +38,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 xAxisDataKey='day'
                                 xAxisLabel='Day'
                                 borderRadius={5}
-                                height={308}
+                                height={368}
                                 series={
                                     [
                                         {
@@ -84,18 +82,29 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                     />
                                 </div>
                             </div>
-
-                            <HorizontalBars
-                                className='width-auto'
-                                dataset={financeByYear}
+                            <VerticleBars
                                 textColor={char_font_color}
-                                // color='#1976D2'
-                                yAxisDataKey='month'
-                                xAxisLabel='Amount'
-                                dataKey='amount'
-                                label='Amount'
-                                forMatter='LKR'
-                                height={300}
+                                dataset={incomeExpenseByYear}
+                                xAxisDataKey='month'
+                                xAxisLabel='Month'
+                                borderRadius={5}
+                                height={368}
+                                series={
+                                    [
+                                        {
+                                            dataKey: 'amountIncome',
+                                            label: 'Income',
+                                            forMatter: 'LKR',
+                                            color: '#02B2AF'
+                                        },
+                                        {
+                                            dataKey: 'amountExpense',
+                                            label: 'Expenses',
+                                            forMatter: 'LKR',
+                                            color: '#e74c3c'
+                                        }
+                                    ]
+                                }
                             />
                         </Box>
                     </Grid>

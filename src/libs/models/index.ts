@@ -17,6 +17,7 @@ export type {
     ExpenseMonthResponse,
     ExpenseYearResponse,
     ExpenseCurrentWeekDailyResponse,
-    CurrentWeekDailyIncomeExpenseResponse
+    CurrentWeekDailyIncomeExpenseResponse,
+    MonthIncomeExpenseResponse
 } from './expense-model/expense-model';
 
