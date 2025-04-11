@@ -18,8 +18,8 @@ export interface DashBoardComponentProps {
     allFinanceCount: number
     getCurrentWeekDailyIncomeExpense: CurrentWeekDailyIncomeExpenseResponse
     incomeExpenseByYear: MonthIncomeExpenseResponse
-
 }
+
 const DashBoardComponent: React.FC<DashBoardComponentProps> = ({
     thisMonth,
     lastMonth,
