@@ -40,7 +40,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 xAxisDataKey='day'
                                 xAxisLabel='Day'
                                 borderRadius={5}
-                                height={300}
+                                height={308}
                                 series={
                                     [
                                         {
@@ -65,32 +65,7 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                         <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border width-auto`} >
                             <div className='flex justify-content-between'>
                                 <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                    {currentMonth} Weekly Expenses
-                                </Typography>
-                            </div>
-                            {/* <VerticleBars
-                                textColor={char_font_color}
-                                dataset={currrentWeekDailyExpenseCount}
-                                xAxisDataKey='day'
-                                xAxisLabel='Day'
-                                dataKey='amount'
-                                label='Amount'
-                                forMatter='LKR'
-                                color='#e74c3c'
-                                borderRadius={5}
-                                height={300}
-                            /> */}
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
-            <Box className='margin-top-15'>
-                <Grid container spacing={2} alignItems="center">
-                    <Grid item xs={12} md={5.8}>
-                        <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border width-auto`} >
-                            <div className='flex justify-content-between'>
-                                <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                    {monthWiseYear} Monthly Income
+                                    {monthWiseYear} Monthly Income / Expenses
                                 </Typography>
                                 <div className={`font-16 ${theme}-card-font margin-right-30`}>
                                     <SelectBasic
@@ -115,31 +90,6 @@ const DashBoardChartGrid: React.FC<DashBoardChartGridProps> = ({
                                 dataset={financeByYear}
                                 textColor={char_font_color}
                                 // color='#1976D2'
-                                yAxisDataKey='month'
-                                xAxisLabel='Amount'
-                                dataKey='amount'
-                                label='Amount'
-                                forMatter='LKR'
-                                height={300}
-                            />
-                        </Box>
-                    </Grid>
-                    {/* <Divider orientation="vertical" flexItem sx={{ marginX: 1, height: '350px' }} className={`margin-top-30 margin-left-25 ${theme}-border-background`} /> */}
-                    <Grid item xs={12} md={5.8}>
-                        <Box sx={{ padding: 2 }} className={`${theme}-background ${theme}-border width-auto`} >
-                            <div className='flex justify-content-between'>
-                                <Typography className={`font-16 ${theme}-card-font bolder`}>
-                                    {monthWiseYear} Monthly Expenses
-                                </Typography>
-                                <div className={`font-16 ${theme}-card-font margin-right-30`}>
-
-                                </div>
-                            </div>
-                            <HorizontalBars
-                                className='width-auto'
-                                dataset={expenseByYear}
-                                textColor={char_font_color}
-                                color='#e74c3c'
                                 yAxisDataKey='month'
                                 xAxisLabel='Amount'
                                 dataKey='amount'
