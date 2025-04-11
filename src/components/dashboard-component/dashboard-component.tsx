@@ -2,7 +2,7 @@ import React from 'react';;
 import './dashboard-component.css';
 import DashBoardCardGrid from './dashboard-card-grid-component/dashboard-card-grid-component';
 import DashBoardChartGrid from './dashboard-card-chart-component/dashboard-card-chart-component';
-import { CurrentWeekDailyIncomeExpenseResponse, ExpenseCurrentWeekDailyResponse, ExpenseMonthResponse, FinanceCurrentWeekDailyResponse, FinanceMonthResponse, FinanceYearResponse, MonthIncomeExpenseResponse } from '@zenra/model';
+import { CurrentWeekDailyIncomeExpenseResponse, ExpenseMonthResponse, FinanceMonthResponse, FinanceYearResponse, MonthIncomeExpenseResponse } from '@zenra/model';
 // import { useSelector } from 'react-redux';
 // import { RootState } from '@zenra/store';
 
