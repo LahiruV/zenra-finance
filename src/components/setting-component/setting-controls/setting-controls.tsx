@@ -3,13 +3,11 @@ import { BasicButton, BasicCard } from '@zenra/widgets';
 
 export interface SettingControlProps {
     isLoading: boolean;
-    isDisabled: boolean;
     onClick: () => void;
 }
 
 const SettingControl: React.FC<SettingControlProps> = ({
     isLoading,
-    isDisabled,
     onClick
 }) => {
     return (
@@ -27,7 +25,6 @@ const SettingControl: React.FC<SettingControlProps> = ({
                         onClick={onClick}
                         label='Docker Backup Generator'
                         isLoading={isLoading}
-                        isDisabled={isDisabled}
                     />
                 </div>
             }
