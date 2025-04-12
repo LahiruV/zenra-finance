@@ -1,12 +1,22 @@
 import { SettingsComponent } from '@zenra/components';
-import React from 'react';
+import React, { FC, useState } from 'react';
 
-export const Setting: React.FC = () => {
-
+export const Setting: FC = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     return (
         <div>
-            <SettingsComponent company_name="Zenra" />
+            <SettingsComponent
+                isLoading={isLoading}
+                isDisabled={false}
+                onClick={() => {
+                    setIsLoading(true);
+                    setTimeout(() => {
+                        setIsLoading(false);
+                    }, 2000);
+                }}
+            />
         </div>
     );
 };

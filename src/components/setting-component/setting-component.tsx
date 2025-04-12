@@ -2,13 +2,21 @@ import React from 'react';
 import SettingControl from './setting-controls/setting-controls';
 
 export interface SettingsComponentProps {
-    company_name: string;
+    isLoading: boolean;
+    isDisabled: boolean;
+    onClick: () => void;
 }
 
-const SettingsComponent: React.FC<SettingsComponentProps> = ({ company_name }) => {
+const SettingsComponent: React.FC<SettingsComponentProps> = ({
+    isLoading,
+    isDisabled,
+    onClick
+}) => {
     return (
         <SettingControl
-            company_name={company_name}
+            isLoading={isLoading}
+            isDisabled={isDisabled}
+            onClick={onClick}
         />
     );
 };

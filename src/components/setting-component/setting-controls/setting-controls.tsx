@@ -1,28 +1,34 @@
 import React from 'react';
-import { BasicCard } from '@zenra/widgets';
+import { BasicButton, BasicCard } from '@zenra/widgets';
 
 export interface SettingControlProps {
-    company_name: string;
+    isLoading: boolean;
+    isDisabled: boolean;
+    onClick: () => void;
 }
 
-const SettingControl: React.FC<SettingControlProps> = ({ company_name }) => {
+const SettingControl: React.FC<SettingControlProps> = ({
+    isLoading,
+    isDisabled,
+    onClick
+}) => {
     return (
         <BasicCard
-            variant='plain'
-            className='width-300 height-100'
+            className='height-auto'
             size='sm'
-            header={company_name}
-            isHeader={true}
+            isHeader={false}
             content={
-                <div className='font-12'>
-                    <p>Settings</p>
-                    <p>Manage your settings here.</p>
-                </div>
-            }
-            action={
-                <div className='font-12'>
-                    <button>Save</button>
-                    <button>Cancel</button>
+                <div>
+                    <BasicButton
+                        className='login-button-main font-13 width-190'
+                        variant='solid'
+                        colors='primary'
+                        size='sm'
+                        onClick={onClick}
+                        label='Docker Backup Generator'
+                        isLoading={isLoading}
+                        isDisabled={isDisabled}
+                    />
                 </div>
             }
         />
