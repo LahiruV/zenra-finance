@@ -105,7 +105,7 @@ const FinanceFormComponent: React.FC<FinanceFormComponentProps> = ({
                 </form>
             </Card>
             <NotificationWidget
-                id='register-notification'
+                id='finance-notification'
                 className='font-12'
                 label={notification}
                 variant='solid'

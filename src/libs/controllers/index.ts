@@ -24,3 +24,6 @@ export {
     get_current_week_daily_income_expense_count,
     get_income_expense_by_year
 } from './expense-controller/expense-controller';
+export {
+    docker_backup_data_generator
+} from './trigger-controller/trigger-controller';
