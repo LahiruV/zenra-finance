@@ -54,7 +54,7 @@ const LoginComponent: React.FC<LoginComponentProps> = ({
                             variant='outlined'
                             size='md'
                             isFullWidth
-                            helperTextColor={page_main_color}
+                            helperTextColor={"#4a8d63"}
                         />
                     </div>
                     <div className='margin-top-10'>
@@ -72,7 +72,7 @@ const LoginComponent: React.FC<LoginComponentProps> = ({
                             variant='outlined'
                             size='md'
                             isFullWidth
-                            helperTextColor={page_main_color}
+                            helperTextColor={'#4a8d63'}
                         />
                     </div>
                     {error && (
@@ -82,13 +82,13 @@ const LoginComponent: React.FC<LoginComponentProps> = ({
                     )}
                     <BasicButton
                         id='login'
-                        className='margin-top-20 dark-button-main'
+                        className='margin-top-20 login-button-main'
                         label='LOGIN'
                         variant='solid'
                         size='md'
                         type="submit"
                         isFullWidth
-                        colors='primary'
+                        colors='success'
                         isLoading={isLoading}
                     />
                 </form>
