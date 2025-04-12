@@ -3,6 +3,7 @@ import { Container, Typography, Box } from '@mui/material';
 import { BasicButton, InputField, NotificationWidget } from '@zenra/widgets';
 import { power_by } from '@zenra/configs';
 import { PoweredBy } from '@zenra/components';
+import { useInitialService } from '@zenra/services';
 
 export interface LoginComponentProps {
     email: string;
@@ -32,6 +33,10 @@ const LoginComponent: React.FC<LoginComponentProps> = ({
     handleSubmit,
     setOpen,
 }) => {
+    const initialService = useInitialService();
+    const register = () => {
+        initialService.navigate('/register');
+    }
     return (
         <Container maxWidth="xs">
             <Box className='flex flex-direction-column align-items-end' mt={4}>
@@ -92,6 +97,9 @@ const LoginComponent: React.FC<LoginComponentProps> = ({
                         isLoading={isLoading}
                     />
                 </form>
+                <div className='font-14 underline italic cursor padding-top-5 align-items-end' onClick={register}>
+                    Register
+                </div>
                 <PoweredBy company_name={power_by} />
                 <NotificationWidget
                     id='login-notification'
