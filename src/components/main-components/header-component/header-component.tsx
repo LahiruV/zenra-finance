@@ -6,6 +6,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import './header-component.css';
 import { reset_redux } from '@zenra/functions';
+import { authService } from '@zenra/services';
 
 export interface HeaderProps {
     isAuthenticated: boolean
@@ -17,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated }) => {
     const [open, setOpen] = useState(false);
 
     const handleSignOut = () => {
+        authService.clearToken();
         reset_redux();
         setOpen(false);
         window.location.href = '/';

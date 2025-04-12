@@ -13,6 +13,10 @@ const authenticatedRequest = axios.create({
 authenticatedRequest.interceptors.request.use(
     (config) => {
         const token = authService.getToken();
+        if (!token) {
+            reset_redux();
+            window.location.href = '/';
+        }
         const tokenExpiry = authService.expireToken();
         if (tokenExpiry) {
             authService.clearToken();
