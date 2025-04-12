@@ -4,6 +4,7 @@ import './sidebar-component.css';
 import { company_name } from '@zenra/configs';
 import PixIcon from '@mui/icons-material/Pix';
 import PaidIcon from '@mui/icons-material/Paid';
+import SettingsIcon from '@mui/icons-material/Settings';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSelector } from 'react-redux';
 import { RootState, setRouteTitle, setSideBarSelected } from '@zenra/store';
@@ -28,7 +29,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
         ...(isAuthenticated ? [
             { key: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
             { key: 'income', label: 'Income', path: '/income', icon: <PixIcon /> },
-            { key: 'expenses', label: 'Expenses', path: '/expenses', icon: <PaidIcon /> }
+            { key: 'expenses', label: 'Expenses', path: '/expenses', icon: <PaidIcon /> },
+            { key: 'settings', label: 'Settings', path: '/settings', icon: <SettingsIcon /> },
         ] : [])
     ];
     const { sideBarSelected } = useSelector((state: RootState) => state.common);

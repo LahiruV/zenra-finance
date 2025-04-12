@@ -14,7 +14,8 @@ import {
   titleComponentExpensesList,
   Expenses,
   ExpensesForm,
-  titleComponentExpensesForm
+  titleComponentExpensesForm,
+  Setting
 } from '@zenra/pages';
 import './styles/main.css';
 
@@ -54,6 +55,7 @@ const App: React.FC = () => {
           <Route path='/newIncome' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
           <Route path="/expenses" element={renderMainBaseLayout(true, Expenses, true, titleComponentExpensesList)} />
           <Route path='/newExpenses' element={renderMainBaseLayout(true, ExpensesForm, true, titleComponentExpensesForm)} />
+          <Route path='/settings' element={renderMainBaseLayout(true, Setting, false)} />
         </Routes>
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />

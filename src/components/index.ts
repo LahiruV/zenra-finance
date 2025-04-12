@@ -9,3 +9,4 @@ export { default as FinanceFormComponent } from './finance-component/finance-for
 export { default as FinanceListTable } from './finance-component/finance-list-table/finance-list-table';
 export { default as ExpensesListTable } from './expense-component/expenses-list-table/expenses-list-table';
 export { default as ExpensesFormComponent } from './expense-component/expense-form/expenses-form';
+export { default as SettingsComponent } from './setting-component/setting-component'

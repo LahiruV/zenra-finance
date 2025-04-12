@@ -13,3 +13,4 @@ export { default as HorizontalBars } from './horizontal-bars/horizontal-bars';
 export { default as VerticleBars } from './verticle-bars/verticle-bars';
 export { default as SelectBasic } from './select-basic/select-basic';
 export { default as DataGridWidget } from './data-grid/data-grid';
+export { default as BasicCard } from './card/card';

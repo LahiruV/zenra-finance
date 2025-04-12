@@ -5,3 +5,4 @@ export * from './finance-page/finance-page';
 export * from './finance-page/finance-form-page';
 export * from './expenses-page/expenses-page';
 export * from './expenses-page/expenses-form-page';
+export * from './setting-page/setting-page';
