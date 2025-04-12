@@ -50,8 +50,8 @@ const App: React.FC = () => {
           <Route path="/dashboard" element={renderMainBaseLayout(true, Dashboard, false)} />
           <Route path="/new-home" element={renderMainBaseLayout(true, Dashboard, false)} />
           <Route path="/homes" element={renderMainBaseLayout(false, Dashboard, false)} />
-          <Route path="/finance" element={renderMainBaseLayout(true, Finance, true, titleComponentFinanceList)} />
-          <Route path='/newFinance' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
+          <Route path="/income" element={renderMainBaseLayout(true, Finance, true, titleComponentFinanceList)} />
+          <Route path='/newIncome' element={renderMainBaseLayout(true, FinanceForm, true, titleComponentFinanceForm)} />
           <Route path="/expenses" element={renderMainBaseLayout(true, Expenses, true, titleComponentExpensesList)} />
           <Route path='/newExpenses' element={renderMainBaseLayout(true, ExpensesForm, true, titleComponentExpensesForm)} />
         </Routes>

@@ -8,7 +8,7 @@ import { AxiosError } from 'axios';
 import { FinancePayload } from '@zenra/model';
 
 export const titleComponentFinanceForm =
-    <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/finance'>
+    <NavLink style={{ textDecoration: 'none' }} className='height-auto' to='/income'>
         <BasicButton className='top-header-button log-out-button' size='sm' label='Back' />
     </NavLink>
 

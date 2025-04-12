@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
         // { key: 'newhome', label: 'New Home', path: '/new-home', icon: <InfoIcon /> },
         ...(isAuthenticated ? [
             { key: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
-            { key: 'finance', label: 'Finance', path: '/finance', icon: <PixIcon /> },
+            { key: 'income', label: 'Income', path: '/income', icon: <PixIcon /> },
             { key: 'expenses', label: 'Expenses', path: '/expenses', icon: <PaidIcon /> }
         ] : [])
     ];
