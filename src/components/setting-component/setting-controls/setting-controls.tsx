@@ -20,7 +20,7 @@ const SettingControl: React.FC<SettingControlProps> = ({
                     <BasicButton
                         className='login-button-main font-13 width-190'
                         variant='solid'
-                        colors='primary'
+                        colors='success'
                         size='sm'
                         onClick={onClick}
                         label='Docker Backup Generator'
