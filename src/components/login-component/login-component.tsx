@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import { BasicButton, InputField, NotificationWidget } from '@zenra/widgets';
-import { page_main_color, power_by } from '@zenra/configs';
+import { power_by } from '@zenra/configs';
 import { PoweredBy } from '@zenra/components';
 
 export interface LoginComponentProps {
