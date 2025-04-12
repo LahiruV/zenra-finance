@@ -4,19 +4,15 @@ import './/login-reg-left-component.css';
 const LeftLogRegComponent: React.FC = () => {
 
     const quotesAuthor = [
-        'Nelson Mandela',
-        'Malcolm X',
-        'Albert Einstein',
-        'Benjamin Franklin',
-        'Aristotle',
+        'Walt Disney',
+        'Thomas Edison',
+        'Steve Jobs',
     ];
 
     const quotes = [
-        'Education is the most powerful weapon which you can use to change the world.',
-        'Education is the passport to the future, for tomorrow belongs to those who prepare for it today.',
-        'Education is not the learning of facts, but the training of the mind to think.',
-        'An investment in knowledge pays the best interest.',
-        'The roots of education are bitter, but the fruit is sweet.',
+        'The way to get started is to quit talking and begin doing.',
+        'I have not failed. I’ve just found 10,000 ways that won’t work.',
+        'I’m convinced that about half of what separates the successful entrepreneurs from the non-successful ones is pure perseverance.',
     ];
 
     const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
