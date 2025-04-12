@@ -21,6 +21,8 @@ export interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
 
     const initialService = useInitialService()
+    const { loggedUser } = useSelector((state: RootState) => state.user);
+    const { sideBarSelected } = useSelector((state: RootState) => state.common);
 
     const navItems = [
         // { key: 'home', label: 'Home', path: '/home', icon: <HomeIcon /> },
@@ -30,10 +32,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated }) => {
             { key: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
             { key: 'income', label: 'Income', path: '/income', icon: <PixIcon /> },
             { key: 'expenses', label: 'Expenses', path: '/expenses', icon: <PaidIcon /> },
+        ] : []),
+        ...(loggedUser.email === 'lavi@gmail.com' ? [
             { key: 'settings', label: 'Settings', path: '/settings', icon: <SettingsIcon /> },
         ] : [])
     ];
-    const { sideBarSelected } = useSelector((state: RootState) => state.common);
 
     const handleSelect = async (item: { key: string, label: string, path: string, icon: JSX.Element }) => {
         initialService.dispatch(setRouteTitle(item.label));
