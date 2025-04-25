@@ -14,11 +14,10 @@ export const Expenses: React.FC = () => {
     const { response } = GetExpense(true);
 
     const rows = [
-        { id: 1, date: '', expenseType: '', amount: 0 },
+        { date: '', expenseType: '', amount: 0 },
     ];
 
     const columns: GridColDef<(typeof rows)[number]>[] = [
-        { field: 'id', headerName: 'ID', width: 90 },
         {
             field: 'date',
             headerName: 'Date',
