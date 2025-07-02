@@ -1,7 +1,10 @@
-# Use a lightweight HTTP server image
+# Use the latest Alpine-based Nginx image
 FROM nginx:alpine
 
-# Remove default Nginx config
+# Update Alpine packages (including libxml2)
+RUN apk update && apk upgrade
+
+# Remove default Nginx content
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy built React app
